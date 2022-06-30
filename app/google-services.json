@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1033907722426",
+    "project_id": "deparche-51e93",
+    "storage_bucket": "deparche-51e93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033907722426:android:fd9bcf6b16f1f902548a83",
+        "android_client_info": {
+          "package_name": "com.kamilo.deparche"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1033907722426-ahkdh40leneteuodd0avd3hqu7t0j6sf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzsrF_kbZLCyrmK49WJqp5mXb2Kg-5Vkc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1033907722426-ahkdh40leneteuodd0avd3hqu7t0j6sf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">DeParche</string>
+    <string name="carril_cortado">Carril cortado</string>
+    <string name="estado">¿Como te encuentras el dia de hoy?</string>
+    <string name="obras">Obras</string>
+    <string name="objeto_en_la_via">Objeto en la via</string>
+    <string name="rentencion">Rentención</string>
+    <string name="colicion">Colicion</string>
+    <string name="fallas_mecanicas">Fallas Mecanicas</string>
+    <string name="otro">Otro</string>
+    <string name="tomar_foto">Tomar Foto</string>
+    <string name="ubicacion">Ubicacion</string>
+    <string name="observaci_n">Observación</string>
+    <string name="reportar_incidente">reportar incidente</string>
+    <string name="escriba_su_informacion_exacta_para_poder_ayudarlo">Escriba su informacion exacta para poder ayudarlo</string>
+    <string name="escriba_mas_informacion_sobre_lo_ocurrido">Escriba mas informacion sobre lo ocurrido</string>
+    <string name="title_activity_carrilcortado">Carrilcortado</string>
+    <string name="mi_perfil">Mi perfil</string>
+    <string name="observaciones">Agregar descripción</string>
+    <string name="latitud">Latitud</string>
+    <string name="longitud">Longitud</string>
+    <string name="cargar_foto">Cargar foto</string>
+    <string name="colision">Colisión</string>
+    <string name="ob">Observación</string>
+    <string name="Ubicacion">Ubicacion</string>
+    <string-array name="categorias">
+        <item>Restaurante</item>
+        <item>Bar</item>
+        <item>Cultura</item>
+        <item>Discoteca</item>
+        <item>Motel</item>
+        <item>Recreación</item>
+    </string-array>
+
+    <string name="bienvenida">Bienvenidos al creador de frases</string>
+    <string name="categora">CATEGORIA</string>
+    <string name="mensaje">MENSAJE</string>
+    <string name="categoria">Categoria</string>
+    <string name="mensaje2">Mensaje</string>
+
+    <string name="seleccion_user">seleccione una categoria</string>
+
+
+    <string name="tituloInicio1">Fondo Prueba Para Que Disfrutes</string>
+    <string name="empezar">empezar</string>
+    <string name="tituloPop1">EMPEZEMOS EL DIA CON TODA LA ACTITUD</string>
+    <string name="text">Recuerda siempre: el último y principal ingrediente, lo pones tú.</string>
+    <string name="tocame">tocame</string>
+    <string name="Inicio">Inicio</string>
+    <string name="busqueda">Busqueda</string>
+    <string name="frases">Frases</string>
+    <string name="Eventos">Eventos</string>
+    <string name="Perfil">Perfil</string>
+
+</resources>
