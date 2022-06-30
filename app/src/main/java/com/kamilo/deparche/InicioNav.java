@@ -169,7 +169,7 @@ public class InicioNav extends AppCompatActivity {
                                 .textTypeface(Typeface.SANS_SERIF)
                                 .dimColor(R.color.azulinterbus)
                                 .drawShadow(true)
-                                .cancelable(false)
+                                .cancelable(true)
                                 .tintTarget(true)
                                 .transparentTarget(true)
                                 .targetRadius(50),
@@ -186,7 +186,7 @@ public class InicioNav extends AppCompatActivity {
                                 .textTypeface(Typeface.SANS_SERIF)
                                 .dimColor(R.color.azulinterbus)
                                 .drawShadow(true)
-                                .cancelable(false)
+                                .cancelable(true)
                                 .tintTarget(true)
                                 .transparentTarget(true)
                                 .targetRadius(50)).listener(new TapTargetSequence.Listener() {
@@ -196,7 +196,6 @@ public class InicioNav extends AppCompatActivity {
 
                     @Override
                     public void onSequenceStep(TapTarget lastTarget, boolean targetClicked) {
-                        Toast.makeText( InicioNav.this,"Disfruta la App",Toast.LENGTH_SHORT).show();
 
                     }
 
