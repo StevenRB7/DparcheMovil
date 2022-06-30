@@ -85,6 +85,8 @@ public class InicioNav extends AppCompatActivity {
                                 String cadenadesc = document.getString("descripciones");
 
 
+
+
                                 Datos datos = new Datos(tiempo,cadenaurl,cadenadesc);
                                 listDatos.add(datos);
 
