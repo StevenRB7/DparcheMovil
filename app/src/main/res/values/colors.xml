@@ -17,6 +17,7 @@
     <color name="azuloscuro">#031C35</color>
     <color name="rojo">#E91E1E</color>
 
-    //
+    //color taptarget
+    <color name="onda">#A5E5FF</color>
 
 </resources>

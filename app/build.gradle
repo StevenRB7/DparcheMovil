@@ -34,6 +34,8 @@ android {
 dependencies {
 
     //tagtarget
+    implementation 'uk.co.samuelwall:material-tap-target-prompt:3.3.2'
+    implementation 'com.getkeepsafe.taptargetview:taptargetview:1.13.3'
 
     //lottie
     implementation "com.airbnb.android:lottie:5.2.0"

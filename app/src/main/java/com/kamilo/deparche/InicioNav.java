@@ -9,14 +9,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -42,9 +46,8 @@ public class InicioNav extends AppCompatActivity {
     RecyclerView recyclerView;
 
 
-
-
     ImageView  crearFrases;
+
     FloatingActionButton fab;
 
 
@@ -95,7 +98,7 @@ public class InicioNav extends AppCompatActivity {
                     }
                 });
     }
-
+    //navegation boton
     private void referenciar2() {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.btn_nav);
@@ -136,7 +139,7 @@ public class InicioNav extends AppCompatActivity {
     }
 
     private void referenciar() {
-        LottieAnimationView frases = (LottieAnimationView) findViewById(R.id.verFrases);
+        LottieAnimationView frases = findViewById(R.id.verFrases);
         crearFrases = findViewById(R.id.verFrases);
 
         fab = findViewById(R.id.agregar);
@@ -150,6 +153,57 @@ public class InicioNav extends AppCompatActivity {
 
             }
         });
+        new TapTargetSequence(this)
+                .targets(
+                        TapTarget.forView(fab, "Publicar", "En este apartado puedes hacer una publicacion de un eventos, acontecimientos, etc..")
+                                .outerCircleColor(R.color.onda)
+                                .outerCircleAlpha(0.96f)
+                                .targetCircleColor(R.color.azuloscuro)
+                                .titleTextSize(25)
+                                .titleTextColor(R.color.white)
+                                .descriptionTextSize(20)
+                                .descriptionTextColor(R.color.black)
+                                .textColor(R.color.black)
+                                .textTypeface(Typeface.SANS_SERIF)
+                                .dimColor(R.color.azulinterbus)
+                                .drawShadow(true)
+                                .cancelable(false)
+                                .tintTarget(true)
+                                .transparentTarget(true)
+                                .targetRadius(50),
+
+                        TapTarget.forView(frases, "Frases", "Aqui puedes encontrar frases motiivacionales aleatorias")
+                                .outerCircleColor(R.color.onda)
+                                .outerCircleAlpha(0.96f)
+                                .targetCircleColor(R.color.azuloscuro)
+                                .titleTextSize(25)
+                                .titleTextColor(R.color.white)
+                                .descriptionTextSize(20)
+                                .descriptionTextColor(R.color.black)
+                                .textColor(R.color.black)
+                                .textTypeface(Typeface.SANS_SERIF)
+                                .dimColor(R.color.azulinterbus)
+                                .drawShadow(true)
+                                .cancelable(false)
+                                .tintTarget(true)
+                                .transparentTarget(true)
+                                .targetRadius(50)).listener(new TapTargetSequence.Listener() {
+                    @Override
+                    public void onSequenceFinish() {
+                    }
+
+                    @Override
+                    public void onSequenceStep(TapTarget lastTarget, boolean targetClicked) {
+                        Toast.makeText( InicioNav.this,"Disfruta la App",Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onSequenceCanceled(TapTarget lastTarget) {
+
+                    }
+                }).start();
+
         crearFrases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,9 +214,9 @@ public class InicioNav extends AppCompatActivity {
         frases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(InicioNav.this,Popud.class);
+                Intent intent = new Intent(InicioNav.this, Popud.class);
                 startActivity(intent);
-                frases.playAnimation();
+                frases.pauseAnimation();
             }
         });
     }

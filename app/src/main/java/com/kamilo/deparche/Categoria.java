@@ -3,13 +3,23 @@ package com.kamilo.deparche;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
 
 public class Categoria extends AppCompatActivity {
+
+    FloatingActionButton ini;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +27,6 @@ public class Categoria extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categoria);
 
-        setContentView(R.layout.activity_categoria);
         LottieAnimationView animationView1 = (LottieAnimationView) findViewById(R.id.imageciclismo);
         LottieAnimationView animationView2 = (LottieAnimationView) findViewById(R.id.imageclub);
         LottieAnimationView animationView3 = (LottieAnimationView) findViewById(R.id.imagecofeebar);
@@ -73,4 +82,5 @@ public class Categoria extends AppCompatActivity {
             }
         });
     }
+
 }

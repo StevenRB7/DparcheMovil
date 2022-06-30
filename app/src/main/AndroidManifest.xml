@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.kamilo.deparche">
+    package="com.kamilo.deparche" >
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -26,7 +26,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DeParche"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
+        tools:targetApi="31" >
         <activity
             android:name=".Listar"
             android:exported="false" />
@@ -50,9 +50,7 @@
         <activity
             android:name=".Publicar"
             android:exported="false"
-            android:screenOrientation="portrait"
-
-            />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Categoria"
             android:exported="false" />
@@ -62,8 +60,7 @@
         <activity
             android:name=".InicioNav"
             android:exported="false"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".vereficarsi"
             android:exported="false" />
@@ -77,7 +74,7 @@
         <activity
             android:name=".Splash"
             android:exported="true"
-            android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen">
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
