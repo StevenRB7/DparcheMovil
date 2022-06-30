@@ -33,6 +33,9 @@ android {
 
 dependencies {
 
+    //tagtarget
+    implementation 'com.getkeepsafe.taptargetview:taptargetview:1.13.0'
+
     //lottie
     implementation "com.airbnb.android:lottie:5.2.0"
 
