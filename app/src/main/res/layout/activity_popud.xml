@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/radius"
     tools:context=".Popud">
 
     <TextView
@@ -64,7 +65,7 @@
         app:layout_constraintVertical_bias="0.904"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/palmera"></com.airbnb.lottie.LottieAnimationView>
+        app:lottie_rawRes="@raw/palmera"/>
 
     <ImageView
         android:id="@+id/imageView5"
