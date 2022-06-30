@@ -92,7 +92,7 @@
         android:id="@+id/btnUno"
         android:layout_width="188dp"
         android:layout_height="53dp"
-        android:backgroundTint="#66CAFF"
+        android:backgroundTint="#1EA3EA"
         android:text="Agregar"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
