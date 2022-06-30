@@ -29,7 +29,6 @@
         android:fontFamily="monospace"
         android:text=" "
         android:textAlignment="center"
-        android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,12 +38,26 @@
         app:layout_constraintVertical_bias="0.219" />
 
     <TextView
+        android:id="@+id/textPubli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text=" Mis Publicaciones "
+        android:textAlignment="center"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.316" />
+
+    <TextView
         android:id="@+id/textView5"
         android:layout_width="51dp"
         android:layout_height="19dp"
         android:text="Correo: "
         android:textAlignment="center"
-        android:textColor="@color/black"
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +73,6 @@
         android:layout_height="19dp"
         android:hint="id"
         android:textAlignment="center"
-        android:textColor="@color/black"
         android:textSize="10dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -77,7 +89,6 @@
         android:layout_marginTop="92dp"
         android:text=""
         android:textAlignment="center"
-        android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,6 +96,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.155" />
+
+
 
   <!--  <Button
         android:id="@+id/btnElim"
@@ -134,6 +147,16 @@
         tools:ignore="MissingConstraints">
     </ImageButton>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcperfil"
+        android:layout_width="408dp"
+        android:layout_height="459dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.827" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btn_nav"

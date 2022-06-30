@@ -1,5 +1,7 @@
 package com.kamilo.deparche;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +16,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -28,8 +32,26 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import Model.Datos;
 
 public class Perfil extends Activity {
+
+    List<Datos> listDatos;
+    AdaptadorDatos adaptadorDatos;
+    FirebaseStorage storageRef;
+    FirebaseFirestore db;
+    RecyclerView recyclerView;
+
 
     private GoogleSignInClient mGoogleSignInClient;
     private GoogleSignInOptions gso;
@@ -46,7 +68,17 @@ public class Perfil extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
+
+        db = FirebaseFirestore.getInstance();
+        storageRef = FirebaseStorage.getInstance();
+        recyclerView = findViewById(R.id.rcperfil);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        listDatos = new ArrayList<Datos>();
+
+
         referenciar2();
+        llenarLista();
 
         imagenUser = findViewById(R.id.imagenUser);
         textid = findViewById(R.id.textid);
@@ -126,11 +158,43 @@ public class Perfil extends Activity {
         });
     }
 
+    private void llenarLista() {
+
+        db.collection("publicacion").orderBy("tiempo", Query.Direction.DESCENDING).get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()){
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+
+                                Date tiempo = document.getDate("tiempo");
+                                String cadenaurl = document.getString("url");
+                                String cadenadesc = document.getString("descripciones");
+
+
+
+
+                                Datos datos = new Datos(tiempo,cadenaurl,cadenadesc);
+                                listDatos.add(datos);
+
+                                adaptadorDatos = new AdaptadorDatos(Perfil.this,listDatos);
+                                recyclerView.setAdapter(adaptadorDatos);
+
+                            }
+                        }else {
+                            Log.w(TAG,"Error getting documents.", task.getException());
+                        }
+                    }
+                });
+
+    }
+
     private void referenciar2() {
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.btn_nav);
-
         bottomNavigationView.setSelectedItemId(R.id.perfil);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
