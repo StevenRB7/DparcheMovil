@@ -96,7 +96,6 @@ public class Publicar extends AppCompatActivity {
 
         //botones
 
-        cancelar = findViewById(R.id.Cancelar);
 
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView5);
 
@@ -116,11 +115,11 @@ public class Publicar extends AppCompatActivity {
         funcionsubirfoto();
         funcionUbicacion();
         funcionPublicar();
+        funcionEliminarPublicacion();
 
         /*verificarPermiso();*/
 
     }
-
 
 
     private void funcionsubirfoto() {
@@ -255,11 +254,30 @@ public class Publicar extends AppCompatActivity {
                                         }
                                     });
 
+                            Intent intent = new Intent(Publicar.this, InicioNav.class);
+                            intent.putExtra("URL",url);
+                            startActivity(intent);
+
                         }).addOnFailureListener(e -> {});
             }
         });
     }
 
+    private void funcionEliminarPublicacion() {
+
+        cancelar = findViewById(R.id.Cancelar);
+        cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Publicar.this,  InicioNav.class);
+                Toast.makeText(Publicar.this, "Operacion cancelada correctamente ", Toast.LENGTH_LONG).show();
+                startActivity(intent);
+
+            }
+        });
+
+    }
 
     private void referenciar() {
 
