@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -103,6 +104,12 @@ public class CrearFrase extends AppCompatActivity {
                 String mensaje = etxtTres.getText().toString();
                 Frases datos = new Frases(categoria, mensaje);
                 myRef.child(String.valueOf(id = (int)(Math.random()*10000+1))).setValue(datos);
+
+                Intent intent = new Intent(CrearFrase.this,  InicioNav.class);
+                Toast.makeText(CrearFrase.this, " Frase guardada correctamente ", Toast.LENGTH_LONG).show();
+                startActivity(intent);
+
+
             }
         });
         btnDos.setOnClickListener(new View.OnClickListener() {
