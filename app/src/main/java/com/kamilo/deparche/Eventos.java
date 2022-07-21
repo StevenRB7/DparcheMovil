@@ -86,7 +86,7 @@ public class Eventos extends AppCompatActivity {
         rvlista.setAdapter(adapter);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.132.161:3001/api/")
+                .baseUrl("http://192.168.88.161:3001/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

@@ -9,9 +9,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaEventos"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_width="408dp"
+        android:layout_height="724dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="3dp"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btn_nav"
