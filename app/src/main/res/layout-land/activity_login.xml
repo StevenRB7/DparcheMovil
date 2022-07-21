@@ -102,7 +102,7 @@
             android:layout_marginTop="92dp"
 
             android:text="Ingresar"
-            android:backgroundTint="@color/azuloscuro"
+            android:backgroundTint="@color/azul"
             app:layout_constraintEnd_toEndOf="@+id/txtOlvideCon"
             app:layout_constraintHorizontal_bias="0.509"
             android:textColor="@color/white"
@@ -128,7 +128,7 @@
             android:layout_marginTop="28dp"
             android:gravity="center"
             android:text="Olvidaste tu contraseña"
-            android:textColor="@color/azulinterbus"
+            android:textColor="@color/azulmelo"
 
 
             android:textSize="16sp"

@@ -99,22 +99,22 @@
 
 
 
-    <!--  <Button
-          android:id="@+id/btnElim"
-          android:layout_width="214dp"
-          android:layout_height="60dp"
-          android:backgroundTint="@color/white"
-          android:text="Eliminar Cuenta"
-          android:textColor="@color/black"
-          android:textSize="15dp"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.426"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintVertical_bias="0.846"
-          tools:ignore="MissingConstraints">
-      </Button>-->
+  <!--  <Button
+        android:id="@+id/btnElim"
+        android:layout_width="214dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/white"
+        android:text="Eliminar Cuenta"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.846"
+        tools:ignore="MissingConstraints">
+    </Button>-->
 
     <ImageButton
         android:id="@+id/cerrarsesion"

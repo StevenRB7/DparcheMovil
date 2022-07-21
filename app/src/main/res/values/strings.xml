@@ -49,8 +49,14 @@
     <string name="tocame">tocame</string>
     <string name="Inicio">Inicio</string>
     <string name="busqueda">Busqueda</string>
+    <string name="Crear">Crear</string>
+    <string name="snask">¿Quieres crear una frase?</string>
     <string name="frases">Frases</string>
     <string name="Eventos">Eventos</string>
     <string name="Perfil">Perfil</string>
+    <string name="Camara">Camara</string>
+    <string name="Galeria">Galeria</string>
+    <string name="bienvenido">Crea una frase</string>
+    <string name="mensaje3">Escribe tu frase</string>
 
 </resources>

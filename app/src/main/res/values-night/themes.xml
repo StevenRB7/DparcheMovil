@@ -2,9 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.DeParche" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">@color/blancomelo</item>
         <item name="colorPrimaryVariant">@color/azuloscuro</item>
-        <item name="colorOnPrimary">@color/blancointerbus</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>

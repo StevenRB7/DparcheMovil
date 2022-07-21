@@ -8,9 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="azulinterbus">#559FE0</color>
-    <color name="grisinterbus">#B2BDCC</color>
-    <color name="blancointerbus">#E6F1FF</color>
+    <color name="azulmelo">#559FE0</color>
+    <color name="grismelo">#B2BDCC</color>
+    <color name="blancomelo">#E6F1FF</color>
 
 
     <color name="azul">#1894C5</color>

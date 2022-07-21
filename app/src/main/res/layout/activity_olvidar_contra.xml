@@ -51,7 +51,7 @@
         android:layout_marginTop="88dp"
         android:text="Toca SÍ en el teléfono"
 
-        android:textColor="@color/azulinterbus"
+        android:textColor="@color/azulmelo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +65,7 @@
 
 
         android:text="Recibe un código de verificación "
-        android:textColor="@color/azulinterbus"
+        android:textColor="@color/azulmelo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +89,7 @@
         android:layout_width="141dp"
         android:layout_height="47dp"
         android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/azuloscuro"
+        android:backgroundTint="@color/azul"
         android:text="Ver"
         app:layout_constraintBottom_toTopOf="@+id/btnCancelado"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,7 +115,7 @@
         android:layout_width="137dp"
         android:layout_height="60dp"
         android:layout_marginBottom="100dp"
-        android:backgroundTint="@color/azuloscuro"
+        android:backgroundTint="@color/azul"
         android:text="CANCELAR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -167,7 +168,7 @@ public class InicioNav extends AppCompatActivity {
                                 .descriptionTextColor(R.color.black)
                                 .textColor(R.color.black)
                                 .textTypeface(Typeface.SANS_SERIF)
-                                .dimColor(R.color.azulinterbus)
+                                .dimColor(R.color.azulmelo)
                                 .drawShadow(true)
                                 .cancelable(true)
                                 .tintTarget(true)
@@ -184,7 +185,7 @@ public class InicioNav extends AppCompatActivity {
                                 .descriptionTextColor(R.color.black)
                                 .textColor(R.color.black)
                                 .textTypeface(Typeface.SANS_SERIF)
-                                .dimColor(R.color.azulinterbus)
+                                .dimColor(R.color.azulmelo)
                                 .drawShadow(true)
                                 .cancelable(true)
                                 .tintTarget(true)
@@ -212,12 +213,27 @@ public class InicioNav extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
         frases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(InicioNav.this, Popud.class);
                 startActivity(intent);
                 frases.pauseAnimation();
+                class Crear implements View.OnClickListener {
+
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(InicioNav.this, CrearFrase.class);
+                        startActivity(intent);
+                    }
+                }
+                Snackbar mySnackbar = Snackbar.make(findViewById(R.id.verFrases),
+                        R.string.snask, Snackbar.LENGTH_SHORT);
+                mySnackbar.setAction(R.string.Crear, new Crear());
+                mySnackbar.show();
+
             }
         });
     }
