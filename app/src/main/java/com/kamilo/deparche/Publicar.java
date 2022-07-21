@@ -143,6 +143,11 @@ public class Publicar extends AppCompatActivity {
                     startActivityForResult(intent, 1);
                     imageUri = fotoUri;
                 }
+                //break;
+
+                //case R.id.lnOtro:
+
+                  //  Intent intent1 = FileProvider.getUriForFile(Publicar.this,)
 
             }
         });
