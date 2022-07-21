@@ -7,14 +7,24 @@ public class Datos {
     Date tiempo;
     String Url;
     String Descripciones;
+    String Categorias;
 
     public Datos() {
     }
 
-    public Datos(Date tiempo, String url, String descripciones) {
+    public Datos(Date tiempo, String url, String descripciones , String categorias) {
         this.tiempo = tiempo;
         Url = url;
         Descripciones = descripciones;
+        Categorias = categorias;
+    }
+
+    public String getCategorias() {
+        return Categorias;
+    }
+
+    public void setCategorias(String categorias) {
+        Categorias = categorias;
     }
 
     public Date getTiempo() {
@@ -44,6 +54,6 @@ public class Datos {
 
     @Override
     public String toString() {
-        return tiempo + Url  + Descripciones ;
+        return tiempo + Url  + Descripciones + Categorias ;
     }
 }

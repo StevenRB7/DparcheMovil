@@ -35,9 +35,9 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgPerfil"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/artesania"/>
+                    android:layout_width="79dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/artesania" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -49,11 +49,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:hint="Nombre usuario"
                         android:textColor="@color/black"
                         android:textSize="15sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:layout_marginEnd="10sp"
+                        />
 
                     <TextView
                         android:id="@+id/txtFecha"
@@ -61,7 +63,19 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:hint="Fecha"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/txtCate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:hint="Categoria"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10sp"
+                        />
                 </LinearLayout>
 
 
@@ -72,14 +86,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5sp"
-                android:hint="descripcion"/>
+                android:hint="descripcion" />
 
             <ImageView
                 android:id="@+id/itemimgPublicacion"
                 android:layout_width="371dp"
                 android:layout_height="317dp"
                 android:layout_margin="6dp"
-                android:src="@drawable/galeria"/>
+                android:src="@drawable/galeria" />
 
             <TextView
                 android:id="@+id/ubicacion"
@@ -87,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Ubicacion"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 

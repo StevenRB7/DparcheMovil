@@ -33,25 +33,53 @@
         app:layout_constraintVertical_bias="0.0"
         />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="412dp"
-        android:layout_height="100dp"
-        android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
+    <!-- <com.google.android.material.textfield.TextInputLayout
+         android:id="@+id/textInputLayout3"
+         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+         android:layout_width="412dp"
+         android:layout_height="100dp"
+         android:padding="16dp"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+         <AutoCompleteTextView
+             android:id="@+id/autoCompleteTextView5"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:hint="Categoria"
+             android:inputType="none" />
+
+     </com.google.android.material.textfield.TextInputLayout>-->
+
+
+    <TextView
+        android:id="@+id/categorias"
+        android:layout_width="189dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="8dp"
+        android:text="Categoria del lugar"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.037"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.129" />
 
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Categoria"
-            android:inputType="none" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
+    <Spinner
+        android:id="@+id/spinnerCate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/categorias"
+        android:spinnerMode="dialog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.124" />
 
     <ImageView
         android:id="@+id/imgTomarFoto"
@@ -79,18 +107,17 @@
         app:layout_constraintVertical_bias="0.544"
         app:srcCompat="@drawable/galeria" />
 
+
     <ImageView
         android:id="@+id/imgPublicacion"
         android:layout_width="222dp"
         android:layout_height="173dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-        app:srcCompat="@drawable/galeria"
-        />
-
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCate"
+        app:srcCompat="@drawable/galeria" />
 
     <ImageView
         android:id="@+id/imgUbicacion"
@@ -163,7 +190,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textlatitudpublicacion"
-        app:layout_constraintVertical_bias="0.106" />
+        app:layout_constraintVertical_bias="0.075" />
 
     <Button
         android:id="@+id/Publicar"

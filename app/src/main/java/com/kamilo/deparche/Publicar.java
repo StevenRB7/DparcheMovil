@@ -33,6 +33,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,9 +59,7 @@ import Model.Datos;
 
 public class Publicar extends AppCompatActivity {
 
-    String[] items = {"Restaurante", "Bar", "Cultura", "Motel", "Discoteca", "Recreación"};
-    AutoCompleteTextView autoCompleteTextView;
-    ArrayAdapter<String> adapterItems;
+    Spinner spinner;
 
     ImageView tomarfoto, subirfoto, obtenerubicacion, publicacion;
     TextView lati, longi;
@@ -77,7 +76,7 @@ public class Publicar extends AppCompatActivity {
     Date fechasub;
 
     int indice = 0;
-    String id, urlObtenida,url,descripciones;
+    String id, urlObtenida,url,descripciones,categorias;
     private Uri imageUri = null;
 
     /*   @RequiresApi(api = Build.VERSION_CODES.M)*/
@@ -90,25 +89,10 @@ public class Publicar extends AppCompatActivity {
 
         publicacion = findViewById(R.id.imgPublicacion);
 
+        spinner = findViewById(R.id.spinnerCate);
 
         //editext
         Descripcion = findViewById(R.id.txtDescripcion);
-
-        //botones
-
-
-        autoCompleteTextView = findViewById(R.id.autoCompleteTextView5);
-
-        adapterItems = new ArrayAdapter<String>(this,R.layout.lista_nivel_gravedad, items);
-
-        autoCompleteTextView.setAdapter(adapterItems);
-        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String item = adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(getApplicationContext(),"Categoria: "+item, Toast.LENGTH_SHORT).show();
-            }
-        });
 
         referenciar();
         funciontomarfoto();
@@ -223,6 +207,7 @@ public class Publicar extends AppCompatActivity {
 
                             url = uploadedImageUri;
                             descripciones = Descripcion.getText().toString();
+                            categorias = spinner.getSelectedItem().toString();
 
                             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
                             Date date = new Date();
@@ -231,7 +216,7 @@ public class Publicar extends AppCompatActivity {
 
                             fechasub = date;
 
-                            Datos datos = new Datos(fechasub,url,descripciones);
+                            Datos datos = new Datos(fechasub,url,descripciones,categorias);
 
                             FirebaseFirestore db = FirebaseFirestore.getInstance();
                             db.collection("publicacion")

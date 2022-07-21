@@ -41,6 +41,7 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
         Glide.with(context).load(datos.getUrl()).into(holder.foto);
         holder.observa.setText(datos.getDescripciones());
         holder.tiempito.setText(datos.getTiempo().toString());
+        holder.cate.setText(datos.getCategorias());
     }
 
     @Override
@@ -50,7 +51,7 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView observa, tiempito;
+        TextView observa, tiempito, cate;
         ImageView foto;
 
         public ViewHolder(@NonNull View itemView) {
@@ -59,6 +60,7 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
             tiempito = itemView.findViewById(R.id.txtFecha);
             observa = itemView.findViewById(R.id.itemdescripcion);
             foto = (ImageView) itemView.findViewById(R.id.itemimgPublicacion);
+            cate = itemView.findViewById(R.id.txtCate);
         }
     }
 

@@ -83,11 +83,11 @@ public class InicioNav extends AppCompatActivity {
                                 Date tiempo = document.getDate("tiempo");
                                 String cadenaurl = document.getString("url");
                                 String cadenadesc = document.getString("descripciones");
+                                String cadenacate = document.getString("categorias");
 
 
 
-
-                                Datos datos = new Datos(tiempo,cadenaurl,cadenadesc);
+                                Datos datos = new Datos(tiempo,cadenaurl,cadenadesc,cadenacate);
                                 listDatos.add(datos);
 
                                 adaptadorDatos = new AdaptadorDatos(InicioNav.this,listDatos);
