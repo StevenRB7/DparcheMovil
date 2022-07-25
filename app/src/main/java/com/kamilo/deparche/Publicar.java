@@ -23,6 +23,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -208,56 +209,70 @@ public class Publicar extends AppCompatActivity {
                 indice = indice +1;
                 id = String.valueOf(indice);
 
-                long timestamp = System.currentTimeMillis();
-                String filePathAndName = "publicaciones/" + timestamp;
+                if (validarfor()) {
 
-                StorageReference storageReference = FirebaseStorage.getInstance().getReference(filePathAndName);
-                storageReference.putFile(imageUri)
-                        .addOnSuccessListener(taskSnapshot -> {
-                            Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-                            while (!uriTask.isSuccessful()) ;
-                            String uploadedImageUri = "" + uriTask.getResult();
-                            Toast.makeText(Publicar.this, "foto enviada correctamente ", Toast.LENGTH_LONG).show();
+                    long timestamp = System.currentTimeMillis();
+                    String filePathAndName = "publicaciones/" + timestamp;
 
-                            url = uploadedImageUri;
-                            descripciones = Descripcion.getText().toString();
-                            categorias = spinner.getSelectedItem().toString();
+                    StorageReference storageReference = FirebaseStorage.getInstance().getReference(filePathAndName);
+                    storageReference.putFile(imageUri)
+                            .addOnSuccessListener(taskSnapshot -> {
+                                Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                                while (!uriTask.isSuccessful()) ;
+                                String uploadedImageUri = "" + uriTask.getResult();
+                                Toast.makeText(Publicar.this, "foto enviada correctamente ", Toast.LENGTH_LONG).show();
 
-                            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-                            Date date = new Date();
+                                url = uploadedImageUri;
+                                descripciones = Descripcion.getText().toString();
+                                categorias = spinner.getSelectedItem().toString();
 
-                            String fecha = dateFormat.format(date);
+                                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                                Date date = new Date();
 
-                            fechasub = date;
+                                String fecha = dateFormat.format(date);
 
-                            Datos datos = new Datos(fechasub,url,descripciones,categorias);
+                                fechasub = date;
 
-                            FirebaseFirestore db = FirebaseFirestore.getInstance();
-                            db.collection("publicacion")
-                                    .add(datos)
-                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>(){
-                                        @Override
-                                        public void onSuccess(DocumentReference documentReference) {
+                                Datos datos = new Datos(fechasub, url, descripciones, categorias);
 
-                                            Log.d(TAG,"DocumentSnapshot written with ID: " + documentReference.getId());
-                                        }
-                                    })
+                                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                db.collection("publicacion")
+                                        .add(datos)
+                                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                            @Override
+                                            public void onSuccess(DocumentReference documentReference) {
 
-                                    .addOnFailureListener(new OnFailureListener(){
+                                                Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                                            }
+                                        })
 
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
+                                        .addOnFailureListener(new OnFailureListener() {
 
-                                            Log.w(TAG, "Error adding document", e);
-                                            Toast.makeText(Publicar.this, "Datos f", Toast.LENGTH_LONG).show();
-                                        }
-                                    });
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
 
-                            Intent intent = new Intent(Publicar.this, InicioNav.class);
-                            intent.putExtra("URL",url);
-                            startActivity(intent);
+                                                Log.w(TAG, "Error adding document", e);
+                                                Toast.makeText(Publicar.this, "Datos f", Toast.LENGTH_LONG).show();
+                                            }
+                                        });
 
-                        }).addOnFailureListener(e -> {});
+                                Intent intent = new Intent(Publicar.this, InicioNav.class);
+                                intent.putExtra("URL", url);
+                                startActivity(intent);
+
+                            }).addOnFailureListener(e -> {
+                            });
+
+                }else {
+
+                }if (!validarfor()){
+
+                    Toast.makeText(Publicar.this, "Faltan campos por llenar ", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(Publicar.this, "Datos insertados correctamente", Toast.LENGTH_SHORT).show();
+                    Intent intentt = new Intent(Publicar.this, InicioNav.class);
+                    startActivity(intentt);
+                }
             }
         });
     }
@@ -310,6 +325,33 @@ public class Publicar extends AppCompatActivity {
              }
          }
      }*/
+
+    public boolean validarfor(){
+        Boolean esValido = true;
+
+        if (TextUtils.isEmpty(Descripcion.getText().toString())){
+            Descripcion.setError("campo requerido");
+            esValido = false;
+        } else {
+            Descripcion.setError(null);
+        }
+        /*if (TextUtils.isEmpty(TxtLatitud.getText())){
+            TxtLatitud.setError("campo requerido");
+            esValido = false;
+        }else{
+            TxtLatitud.setError(null);
+        }*/
+       /* if (imageUri == null){
+            publicacion.setVisibility(View.VISIBLE);
+            esValido = false;
+        }else{
+            publicacion.setError(null);
+        }*/
+
+        return esValido;
+    }
+
+
     private File crearImagen() throws IOException {
         String nombreImagen = "fotoLugar";
         File directorio = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
