@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +26,9 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
     List<Datos> listDatos;
     Context context;
     List<Datos> originalItems;
+
+    FirebaseAuth mAuth;
+
 
     public AdaptadorDatos(Context context, List<Datos> listDatos) {
         this.listDatos = listDatos;
@@ -42,12 +47,18 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+
         Datos datos=listDatos.get(position);
 
         Glide.with(context).load(datos.getUrl()).into(holder.foto);
         holder.observa.setText(datos.getDescripciones());
         holder.tiempito.setText(datos.getTiempo().toString());
         holder.cate.setText(datos.getCategorias());
+        holder.nomGmail.setText(currentUser.getDisplayName());
+        Glide.with(context).load(currentUser.getPhotoUrl()).into(holder.perfil);
     }
 
     @Override
@@ -81,8 +92,8 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView observa, tiempito, cate;
-        ImageView foto;
+        TextView observa, tiempito, cate, nomGmail;
+        ImageView foto, perfil;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -91,6 +102,9 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
             observa = itemView.findViewById(R.id.itemdescripcion);
             foto = (ImageView) itemView.findViewById(R.id.itemimgPublicacion);
             cate = itemView.findViewById(R.id.txtCate);
+            nomGmail = itemView.findViewById(R.id.nomUsuarioItem);
+            perfil = itemView.findViewById(R.id.imgPerfilItem);
+
         }
     }
 
