@@ -121,7 +121,7 @@ public class Publicar extends AppCompatActivity {
 
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 intent.setType("image/*");
-                startActivityForResult(intent.createChooser(intent,"Seleccione la aplicacion"),SELEC_IMAGEN);
+                startActivityForResult(intent,SELEC_IMAGEN);
 
             }
         });
@@ -145,12 +145,19 @@ public class Publicar extends AppCompatActivity {
                 }
 
                     if (imagenArchivo != null) {
-                        Uri fotoUri = FileProvider.getUriForFile(Publicar.this, "com.kamilo.deparche", imagenArchivo);
+                     /*   Uri fotoUri = FileProvider.getUriForFile (Publicar.this, "com.kamilo.deparche", imagenArchivo);
+                        intent.putExtra(MediaStore.EXTRA_OUTPUT, fotoUri);
+                        startActivityForResult(intent, TOMAR_FOTO);
+                        imageUri = fotoUri;*/
+                        Uri fotoUri = FileProvider.getUriForFile (Publicar.this, "com.kamilo.deparche", imagenArchivo);
                         intent.putExtra(MediaStore.EXTRA_OUTPUT, fotoUri);
                         startActivityForResult(intent, TOMAR_FOTO);
                         imageUri = fotoUri;
                     }
-                    break;
+                  break;
+
+                    case R.id.imgGaleria:
+
                 }
             }
         });
