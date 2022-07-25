@@ -226,7 +226,7 @@ public class Publicar extends AppCompatActivity {
                                 descripciones = Descripcion.getText().toString();
                                 categorias = spinner.getSelectedItem().toString();
 
-                                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                                SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE-LLL-aaaa", Locale.forLanguageTag("es_ES"));
                                 Date date = new Date();
 
                                 String fecha = dateFormat.format(date);

@@ -2,6 +2,7 @@ package com.kamilo.deparche;
 
 import android.content.Context;
 import android.os.Build;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,8 +56,10 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
 
         Glide.with(context).load(datos.getUrl()).into(holder.foto);
         holder.observa.setText(datos.getDescripciones());
-        holder.tiempito.setText(datos.getTiempo().toString());
+        holder.tiempito.setText(DateFormat.format("EEEE  dd LLL yyyy",datos.getTiempo()));
         holder.cate.setText(datos.getCategorias());
+
+        //gmail
         holder.nomGmail.setText(currentUser.getDisplayName());
         Glide.with(context).load(currentUser.getPhotoUrl()).into(holder.perfil);
     }
