@@ -119,7 +119,6 @@ public class Publicar extends AppCompatActivity {
 
             }
         });
-
     }
 
     private void funciontomarfoto() {

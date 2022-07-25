@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/imgPerfil"
+                    android:id="@+id/imgPerfilItem"
                     android:layout_width="79dp"
                     android:layout_height="match_parent"
                     android:src="@drawable/artesania" />
@@ -45,15 +45,14 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/nomUsuario"
+                        android:id="@+id/nomUsuarioItem"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="0dp"
                         android:hint="Nombre usuario"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
                         android:textStyle="bold"
+                        android:textSize="15sp"
                         android:layout_marginEnd="10sp"
                         />
 
