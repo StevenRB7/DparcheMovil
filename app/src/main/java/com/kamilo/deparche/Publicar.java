@@ -34,6 +34,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -76,6 +77,11 @@ public class Publicar extends AppCompatActivity {
     Date fechasub;
 
     int indice = 0;
+
+    int TOMAR_FOTO = 100;
+    int SELEC_IMAGEN = 200;
+
+
     String id, urlObtenida,url,descripciones,categorias;
     private Uri imageUri = null;
 
@@ -87,7 +93,7 @@ public class Publicar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publicar);
 
-        publicacion = findViewById(R.id.imgPublicacion);
+        publicacion = findViewById(R.id.imgPubli);
 
         spinner = findViewById(R.id.spinnerCate);
 
@@ -115,7 +121,7 @@ public class Publicar extends AppCompatActivity {
 
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 intent.setType("image/*");
-                startActivityForResult(intent.createChooser(intent,"Seleccione la aplicacion"),10);
+                startActivityForResult(intent.createChooser(intent,"Seleccione la aplicacion"),SELEC_IMAGEN);
 
             }
         });
@@ -128,8 +134,9 @@ public class Publicar extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //Toast.makeText(Publicar.this, "Presionó Clic", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                switch (view.getId()){
+                    case R.id.imgTomarFoto:
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 File imagenArchivo = null;
                 try {
                     imagenArchivo = crearImagen();
@@ -137,18 +144,14 @@ public class Publicar extends AppCompatActivity {
                     x.printStackTrace();
                 }
 
-                if (imagenArchivo != null) {
-                    Uri fotoUri = FileProvider.getUriForFile(Publicar.this, "com.kamilo.deparche", imagenArchivo);
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT, fotoUri);
-                    startActivityForResult(intent, 1);
-                    imageUri = fotoUri;
+                    if (imagenArchivo != null) {
+                        Uri fotoUri = FileProvider.getUriForFile(Publicar.this, "com.kamilo.deparche", imagenArchivo);
+                        intent.putExtra(MediaStore.EXTRA_OUTPUT, fotoUri);
+                        startActivityForResult(intent, TOMAR_FOTO);
+                        imageUri = fotoUri;
+                    }
+                    break;
                 }
-                //break;
-
-                //case R.id.lnOtro:
-
-                  //  Intent intent1 = FileProvider.getUriForFile(Publicar.this,)
-
             }
         });
     }
@@ -310,17 +313,17 @@ public class Publicar extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         Publicar.super.onActivityResult(requestCode,resultCode,data);
 
-        if (requestCode == 10) {
+        if (resultCode == RESULT_OK && requestCode == SELEC_IMAGEN) {
 
             assert data != null;
             imageUri = data.getData();
             publicacion.setImageURI(data.getData());
 
-        }else if(requestCode == 1 && resultCode == RESULT_OK) {
+        }else if(resultCode == RESULT_OK && requestCode == TOMAR_FOTO) {
 
             Uri uri = Uri.parse(urlObtenida);
             publicacion.setImageURI(uri);
