@@ -46,7 +46,7 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
                     bg.setVisibility(View.GONE);
                     tine tine = new tine();
                     tine.execute();
-                    Toast.makeText(Emociones.this, "cada 15 dias ", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(Emociones.this, "cada 15 dias ", Toast.LENGTH_SHORT).show();
                 }
             }
         });    animationView2.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +60,7 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
                     bg.setVisibility(View.GONE);
                     tine tine = new tine();
                     tine.execute();
-                    Toast.makeText(Emociones.this, "cada 15 dias ", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(Emociones.this, "cada 15 dias ", Toast.LENGTH_SHORT).show();
                 }
             }
         });    animationView3.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +74,7 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
                     bg.setVisibility(View.GONE);
                     tine tine = new tine();
                     tine.execute();
-                    Toast.makeText(Emociones.this, "cada 15 dias ", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(Emociones.this, "cada 15 dias ", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -82,7 +82,7 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
         long miliseconds = System.currentTimeMillis();
         Date date = new Date(miliseconds);
         System.out.println(date);
-        Toast.makeText(Emociones.this, "Fecha" + date, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(Emociones.this, "Fecha" + date, Toast.LENGTH_SHORT).show();
 
         TimerTask tarea = new TimerTask() {
             @Override

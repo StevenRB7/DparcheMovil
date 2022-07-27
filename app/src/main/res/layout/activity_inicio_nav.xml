@@ -70,8 +70,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcpublicaciones"
-        android:layout_width="405dp"
-        android:layout_height="659dp"
+        android:layout_width="403dp"
+        android:layout_height="686dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
