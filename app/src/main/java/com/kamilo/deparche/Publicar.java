@@ -293,11 +293,12 @@ public class Publicar extends AppCompatActivity {
         JSONObject json = new JSONObject();
 
         try {
-
+            String urlfoto = "https://www.pexels.com/es-es/foto/grupo-de-personas-1587927/";
             json.put("to", "/topics/"+"notificaciondeparche");
             JSONObject notificacion = new JSONObject();
             notificacion.put("titulo", "D'Parche");
             notificacion.put("body", "nuevo evento publicado");
+            //notificacion.put("foto", urlfoto);
 
             json.put("data",notificacion);
 

@@ -5,6 +5,9 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 
@@ -15,6 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.squareup.picasso.Picasso;
 
 import java.util.Random;
 
@@ -43,6 +47,7 @@ public class Fcm extends FirebaseMessagingService {
         if(remoteMessage.getData().size() >0) {
             String titulo = remoteMessage.getData().get("titulo");
             String body = remoteMessage.getData().get("body");
+            //String foto = remoteMessage.getData().get("foto");
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
                 mayorqueoreo(titulo,body);
@@ -51,12 +56,12 @@ public class Fcm extends FirebaseMessagingService {
             }
 
 
-            mayorqueoreo(titulo,body);
+            mayorqueoreo(titulo,body );
             // mayorqueoreo(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());
 
         }
     }
-    private void mayorqueoreo(String titulo,String  body) {
+    private void mayorqueoreo(String titulo,String  body ) {
 
         String id = "mensaje";
         NotificationManager nm =(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -64,15 +69,20 @@ public class Fcm extends FirebaseMessagingService {
 
 
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel nc = new NotificationChannel(id, "nuevo",NotificationManager.IMPORTANCE_HIGH);
             nc.setShowBadge(true);
             nm.createNotificationChannel(nc);
         }
 
-/*
+
         try{
-*/
+
+        Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+        //Bitmap jpg = Picasso.with(getApplicationContext()).load(foto).get();
+
+
         builder.setAutoCancel(true)
                 .setWhen(System.currentTimeMillis())
                 .setContentTitle(titulo)
@@ -80,15 +90,18 @@ public class Fcm extends FirebaseMessagingService {
                 .setContentText(body)
                 .setStyle(new NotificationCompat.BigPictureStyle())
                 .setContentIntent(clicknoti())
+                .setSound(soundUri)
+                //.setStyle(new NotificationCompat.BigPictureStyle()
+                        //.bigPicture( jpg))
                 .setContentInfo("nuevo");
         Random random = new Random();
         int idNotify = random.nextInt(8000);
 
         nm.notify(idNotify,
                 builder.build());
-   /* } catch (Exception e) {
+   } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
     }
     //dar click a la notificacion ´para que nos mande algun lugar
     public PendingIntent clicknoti(){
