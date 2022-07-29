@@ -5,12 +5,14 @@ import static android.content.ContentValues.TAG;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,7 +58,7 @@ public class Perfil extends Activity {
     private GoogleSignInClient mGoogleSignInClient;
     private GoogleSignInOptions gso;
 
-    ImageButton imgCerarSesion, eliminarCuenta;
+    ImageButton imgCerarSesion,imgCerarSesion2, eliminarCuenta;
     //Button btnCerrar;
     /*Button btnEliCu;*/
     private FirebaseAuth mAuth;
@@ -85,6 +87,7 @@ public class Perfil extends Activity {
         textnombre = findViewById(R.id.textNom);
         textemail = findViewById(R.id.textCorreo);
         imgCerarSesion = findViewById(R.id.cerrarsesion);
+        imgCerarSesion2 = findViewById(R.id.cerrarsesion2);
         eliminarCuenta = findViewById(R.id.eliminarcuenta);
 
         mAuth = FirebaseAuth.getInstance();
@@ -123,6 +126,13 @@ public class Perfil extends Activity {
             }
         });
 
+    imgCerarSesion2.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(Perfil.this, InicioNav.class);
+            startActivity(intent);
+        }
+    });
 
         eliminarCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
