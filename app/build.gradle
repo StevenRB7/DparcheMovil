@@ -26,9 +26,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    buildFeatures {
-        viewBinding true
-    }
+
 }
 
 dependencies {
@@ -56,8 +54,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-database'
     implementation'com.firebaseui:firebase-ui-firestore:8.0.1'
 
-    implementation platform('com.google.firebase:firebase-bom:29.3.1')
-    implementation 'com.google.firebase:firebase-messaging:23.0.6'
     implementation 'com.google.firebase:firebase-database:20.0.5'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -82,6 +78,12 @@ dependencies {
     //frags
     implementation 'androidx.navigation:navigation-fragment:2.4.2'
     implementation 'androidx.navigation:navigation-ui:2.4.2'
+    //notificaciones
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'androidx.work:work-runtime-ktx:2.8.0-alpha01'
+    implementation 'com.google.firebase:firebase-messaging:23.0.6'
+    implementation 'com.android.support:support-annotations:28.0.0'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation platform('com.google.firebase:firebase-bom:30.3.1')
 
-    implementation 'com.android.volley:volley:1.1.1'
 }

@@ -3,19 +3,13 @@ package com.kamilo.deparche;
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+
 import androidx.core.content.FileProvider;
 
-import android.Manifest;
-import android.content.Context;
+
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
+
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -39,6 +33,10 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -50,12 +48,17 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import Model.Datos;
 
@@ -95,7 +98,7 @@ public class Publicar extends AppCompatActivity {
         setContentView(R.layout.activity_publicar);
 
         publicacion = findViewById(R.id.imgPubli);
-
+        publicar = findViewById(R.id.Publicar);
         spinner = findViewById(R.id.spinnerCate);
 
         //editext
@@ -110,8 +113,8 @@ public class Publicar extends AppCompatActivity {
 
         /*verificarPermiso();*/
 
-    }
 
+    }
 
     private void funcionsubirfoto() {
 
@@ -201,10 +204,10 @@ public class Publicar extends AppCompatActivity {
 
     private void funcionPublicar() {
 
-        publicar = findViewById(R.id.Publicar);
         publicar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                llamar();
 
                 indice = indice +1;
                 id = String.valueOf(indice);
@@ -275,8 +278,47 @@ public class Publicar extends AppCompatActivity {
                 }
             }
         });
-    }
 
+        //FirebaseMessaging.getInstance().subscribeToTopic("enviaratodos").addOnCompleteListener(new OnCompleteListener<Void>() {
+        FirebaseMessaging.getInstance().subscribeToTopic("enviaratodos").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+            }
+        });
+        }
+    private void llamar() {
+        RequestQueue myrequest = Volley.newRequestQueue(getApplicationContext());
+        JSONObject json = new JSONObject();
+
+        try {
+
+            json.put("to", "/topics/"+"enviaratodos");
+            JSONObject notificacion = new JSONObject();
+            notificacion.put("titulo", "D'Parche");
+            notificacion.put("detalle", "Invitados");
+
+            json.put("data",notificacion);
+
+            String URL =    "https://fcm.googleapis.com/fcm/send";
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,URL,json, null,null){
+                @Override
+                public Map<String, String> getHeaders() {
+                    Map<String,String> header = new HashMap<>();
+
+                    header.put("content-type","application/json");
+                    header.put("authorization","key=AAAAzpPq5tg:APA91bH5AE9LYcHqO9wqYYWbBbr4Aop6mc5ScsSvrf8ul0qZWx2ZQUxwjnl_KGpOQYoNpvh4-adzZY8G-O-0ALSA07rML1lVSLhw0XKz2WNPBH_jCyVVcokz8duVn29x2fXW85KkOIwZ");
+                    return header;
+
+                }
+            };
+
+            myrequest.add(request);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
     private void funcionEliminarPublicacion() {
 
         cancelar = findViewById(R.id.Cancelar);
@@ -350,6 +392,8 @@ public class Publicar extends AppCompatActivity {
 
         return esValido;
     }
+
+
 
 
     private File crearImagen() throws IOException {
