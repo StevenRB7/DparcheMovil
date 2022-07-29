@@ -207,6 +207,8 @@ public class Publicar extends AppCompatActivity {
         publicar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //notificacion
                 llamar();
 
                 indice = indice +1;
@@ -280,7 +282,7 @@ public class Publicar extends AppCompatActivity {
         });
 
         //FirebaseMessaging.getInstance().subscribeToTopic("enviaratodos").addOnCompleteListener(new OnCompleteListener<Void>() {
-        FirebaseMessaging.getInstance().subscribeToTopic("enviaratodos").addOnCompleteListener(new OnCompleteListener<Void>() {
+        FirebaseMessaging.getInstance().subscribeToTopic("notificaciondeparche").addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
             }
@@ -292,10 +294,10 @@ public class Publicar extends AppCompatActivity {
 
         try {
 
-            json.put("to", "/topics/"+"enviaratodos");
+            json.put("to", "/topics/"+"notificaciondeparche");
             JSONObject notificacion = new JSONObject();
             notificacion.put("titulo", "D'Parche");
-            notificacion.put("detalle", "Invitados");
+            notificacion.put("body", "nuevo evento publicado");
 
             json.put("data",notificacion);
 
@@ -306,7 +308,7 @@ public class Publicar extends AppCompatActivity {
                     Map<String,String> header = new HashMap<>();
 
                     header.put("content-type","application/json");
-                    header.put("authorization","key=AAAAzpPq5tg:APA91bH5AE9LYcHqO9wqYYWbBbr4Aop6mc5ScsSvrf8ul0qZWx2ZQUxwjnl_KGpOQYoNpvh4-adzZY8G-O-0ALSA07rML1lVSLhw0XKz2WNPBH_jCyVVcokz8duVn29x2fXW85KkOIwZ");
+                    header.put("authorization","key=AAAA8Lmz2Lo:APA91bEZub8G0tub7X2-ojoxyk8KO2JvKnS2282DrML_DbFw2xlDaLPrMoV0YnDi0dsyOYfc00QtSAFieM08nqYK4OKOQgWch4Xykwvc0WqiwHi62G7QqsNhcUXOLZ34MWyOzof26G2v");
                     return header;
 
                 }

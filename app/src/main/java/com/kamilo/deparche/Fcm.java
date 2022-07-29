@@ -42,21 +42,21 @@ public class Fcm extends FirebaseMessagingService {
 
         if(remoteMessage.getData().size() >0) {
             String titulo = remoteMessage.getData().get("titulo");
-            String detalle = remoteMessage.getData().get("detalle");
+            String body = remoteMessage.getData().get("body");
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-                mayorqueoreo(titulo,detalle);
+                mayorqueoreo(titulo,body);
             }
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O){
             }
 
 
-            mayorqueoreo(titulo,detalle);
+            mayorqueoreo(titulo,body);
             // mayorqueoreo(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());
 
         }
     }
-    private void mayorqueoreo(String titulo,String  detalle) {
+    private void mayorqueoreo(String titulo,String  body) {
 
         String id = "mensaje";
         NotificationManager nm =(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -76,8 +76,8 @@ public class Fcm extends FirebaseMessagingService {
         builder.setAutoCancel(true)
                 .setWhen(System.currentTimeMillis())
                 .setContentTitle(titulo)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentText(detalle)
+                .setSmallIcon(R.drawable.logod)
+                .setContentText(body)
                 .setStyle(new NotificationCompat.BigPictureStyle())
                 .setContentIntent(clicknoti())
                 .setContentInfo("nuevo");
@@ -92,7 +92,7 @@ public class Fcm extends FirebaseMessagingService {
     }
     //dar click a la notificacion ´para que nos mande algun lugar
     public PendingIntent clicknoti(){
-        Intent nf = new Intent( getApplicationContext(),Publicar.class);
+        Intent nf = new Intent( getApplicationContext(),InicioNav.class);
         nf.putExtra("color","rojo");
         nf.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP  | Intent.FLAG_ACTIVITY_SINGLE_TOP );
         return PendingIntent.getActivity(this, 0,nf, 0);
