@@ -181,7 +181,7 @@ public class Publicar extends AppCompatActivity {
             public void onClick(View view) {
 
                 longi.setText(""+ String.valueOf(location.getLongitude()));
-
+.
                 if (location.getLatitude() != 0.0 && location.getLongitude() != 0.0) {
                     try {
                         Geocoder geocoder = new Geocoder(Publicar.this, Locale.getDefault());
