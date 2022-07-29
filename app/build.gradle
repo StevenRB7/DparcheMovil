@@ -78,7 +78,7 @@ dependencies {
     //frags
     implementation 'androidx.navigation:navigation-fragment:2.4.2'
     implementation 'androidx.navigation:navigation-ui:2.4.2'
-<<<<<<< HEAD
+
     //notificaciones
     implementation 'com.android.volley:volley:1.2.1'
     implementation 'androidx.work:work-runtime-ktx:2.8.0-alpha01'
@@ -87,7 +87,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation platform('com.google.firebase:firebase-bom:30.3.1')
 
-=======
+
     implementation 'com.android.volley:volley:1.2.1'
->>>>>>> e99fbf7995998248cf95baeb22b17f105fb2bb09
 }
