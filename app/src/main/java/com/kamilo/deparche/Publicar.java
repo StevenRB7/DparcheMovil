@@ -209,7 +209,7 @@ public class Publicar extends AppCompatActivity {
             public void onClick(View view) {
 
                 //notificacion
-                llamar();
+                Notificacion();
 
                 indice = indice +1;
                 id = String.valueOf(indice);
@@ -281,14 +281,13 @@ public class Publicar extends AppCompatActivity {
             }
         });
 
-        //FirebaseMessaging.getInstance().subscribeToTopic("enviaratodos").addOnCompleteListener(new OnCompleteListener<Void>() {
         FirebaseMessaging.getInstance().subscribeToTopic("notificaciondeparche").addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
             }
         });
         }
-    private void llamar() {
+    private void Notificacion() {
         RequestQueue myrequest = Volley.newRequestQueue(getApplicationContext());
         JSONObject json = new JSONObject();
 
@@ -297,7 +296,7 @@ public class Publicar extends AppCompatActivity {
             json.put("to", "/topics/"+"notificaciondeparche");
             JSONObject notificacion = new JSONObject();
             notificacion.put("titulo", "D'Parche");
-            notificacion.put("body", "nuevo evento publicado");
+            notificacion.put("body", "¡Nuevo evento publicado!");
             //notificacion.put("foto", urlfoto);
 
             json.put("data",notificacion);

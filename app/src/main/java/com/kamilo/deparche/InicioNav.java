@@ -140,7 +140,7 @@ public class InicioNav extends AppCompatActivity {
             }
         });
     }
-
+//taptarget
     private void referenciar() {
         LottieAnimationView frases = findViewById(R.id.verFrases);
         crearFrases = findViewById(R.id.verFrases);
@@ -168,12 +168,12 @@ public class InicioNav extends AppCompatActivity {
                                 .descriptionTextColor(R.color.black)
                                 .textColor(R.color.black)
                                 .textTypeface(Typeface.SANS_SERIF)
-                                .dimColor(R.color.azulmelo)
+                                .dimColor(android.R.color.holo_blue_bright)
                                 .drawShadow(true)
                                 .cancelable(true)
                                 .tintTarget(true)
                                 .transparentTarget(true)
-                                .targetRadius(50),
+                                .targetRadius(30),
 
                         TapTarget.forView(frases, "Frases", "Aqui puedes encontrar frases motiivacionales aleatorias")
                                 .outerCircleColor(R.color.onda)
@@ -185,7 +185,7 @@ public class InicioNav extends AppCompatActivity {
                                 .descriptionTextColor(R.color.black)
                                 .textColor(R.color.black)
                                 .textTypeface(Typeface.SANS_SERIF)
-                                .dimColor(R.color.azulmelo)
+                                .dimColor(R.color.azul)
                                 .drawShadow(true)
                                 .cancelable(true)
                                 .tintTarget(true)

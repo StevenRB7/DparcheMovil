@@ -4,7 +4,7 @@
     package="com.kamilo.deparche" >
 
     <uses-feature
-        android:name="android.hardware.camera"
+        android:name="android.hardware.camara"
         android:required="true" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -67,7 +67,7 @@
         <activity
             android:name=".OlvidarContra"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".Login"
             android:exported="false" />
@@ -101,6 +101,7 @@
 
             </meta-data>
         </provider>
+
     </application>
 
 </manifest>

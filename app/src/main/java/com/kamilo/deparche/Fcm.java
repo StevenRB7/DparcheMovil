@@ -24,17 +24,17 @@ import java.util.Random;
 
 public class Fcm extends FirebaseMessagingService {
 
+
     @Override
     public void onNewToken(@NonNull String s) {
         super.onNewToken(s);
 
-        Log.e("token","mi token es:" +s);
         guardartoken(s);
     }
     private void guardartoken(String s) {
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("token");
-        ref.child("steven").setValue(s);
+        ref.setValue(s);
     }
 
     @Override
@@ -42,22 +42,21 @@ public class Fcm extends FirebaseMessagingService {
         super.onMessageReceived(remoteMessage);
 
         String from = remoteMessage.getFrom();
-        Log.e("TAG","mensaje recibido de "+from);
 
         if(remoteMessage.getData().size() >0) {
             String titulo = remoteMessage.getData().get("titulo");
             String body = remoteMessage.getData().get("body");
             //String foto = remoteMessage.getData().get("foto");
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S){
                 mayorqueoreo(titulo,body);
-            }
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O){
+
             }
 
 
             mayorqueoreo(titulo,body );
-            // mayorqueoreo(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());
+            mayorqueoreo(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());
 
         }
     }
@@ -88,7 +87,6 @@ public class Fcm extends FirebaseMessagingService {
                 .setContentTitle(titulo)
                 .setSmallIcon(R.drawable.logod)
                 .setContentText(body)
-                .setStyle(new NotificationCompat.BigPictureStyle())
                 .setContentIntent(clicknoti())
                 .setSound(soundUri)
                 //.setStyle(new NotificationCompat.BigPictureStyle()
@@ -106,7 +104,7 @@ public class Fcm extends FirebaseMessagingService {
     //dar click a la notificacion ´para que nos mande algun lugar
     public PendingIntent clicknoti(){
         Intent nf = new Intent( getApplicationContext(),InicioNav.class);
-        nf.putExtra("color","rojo");
+        nf.putExtra("color","azul");
         nf.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP  | Intent.FLAG_ACTIVITY_SINGLE_TOP );
         return PendingIntent.getActivity(this, 0,nf, 0);
     }
