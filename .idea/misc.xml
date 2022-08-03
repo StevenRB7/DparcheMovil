@@ -14,7 +14,6 @@
         <entry key="..\:/Users/ADMIN/Desktop/DparcheHoy/DparcheMovil/app/src/main/res/layout/item.xml" value="0.33" />
         <entry key="..\:/Users/ADMIN/Desktop/DparcheMovil/app/src/main/res/drawable/home.xml" value="0.323" />
         <entry key="..\:/Users/ADMIN/Desktop/DparcheMovil/app/src/main/res/layout-land/activity_login.xml" value="0.22" />
-        <entry key="..\:/Users/ADMIN/Desktop/DparcheMovil/app/src/main/res/layout/activity_busqueda.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/DparcheMovil/app/src/main/res/layout/activity_crear_frase.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/DparcheMovil/app/src/main/res/layout/activity_inicio_nav.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/DparcheMovil/app/src/main/res/layout/activity_listar.xml" value="0.3625" />
@@ -29,6 +28,33 @@
         <entry key="..\:/Users/ADMIN/Desktop/Hoy/DparcheMovil/app/src/main/res/layout/activity_inicio_nav.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/Hoy/DparcheMovil/app/src/main/res/layout/activity_publicar.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/Hoy/DparcheMovil/app/src/main/res/layout/item.xml" value="0.3625" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/drawable/ic_agregar.xml" value="0.2985" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/drawable/ic_chats.xml" value="0.2985" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/drawable/ic_check.xml" value="0.2985" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/drawable/ic_conectado.xml" value="0.2985" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/drawable/ic_desconectado.xml" value="0.2985" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/drawable/ic_entregado.xml" value="0.2985" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/drawable/ic_enviar.xml" value="0.2985" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/drawable/ic_mis_solicitudes.xml" value="0.2985" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/drawable/ic_send.xml" value="0.2985" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/drawable/ic_solicitudes.xml" value="0.2985" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/drawable/ic_users.xml" value="0.2985" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/drawable/ic_visto.xml" value="0.2985" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/drawable/spash.xml" value="0.1935" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/layout-land/activity_inicio_nav.xml" value="0.30687830687830686" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/layout/activity_home.xml" value="0.3625" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/layout/activity_inicio_nav.xml" value="0.2864583333333333" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/layout/activity_mensajes.xml" value="0.3484375" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/layout/chat_item_legth.xml" value="0.3625" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/layout/chat_item_rigth.xml" value="0.3625" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/layout/fragment_chats.xml" value="0.3614583333333333" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/layout/fragment_mis_solicitudes.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/layout/fragment_solicitudes.xml" value="0.184375" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/layout/fragment_user.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/layout/row_chatlista.xml" value="0.3625" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/layout/row_usuarios.xml" value="0.3614583333333333" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3625" />
+        <entry key="..\:/Users/ADMIN/Desktop/HoySiu/DparcheMovil/app/src/main/res/menu/menu_item.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/Nuevo/DparcheMovil/app/src/main/res/layout/activity_busqueda.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/Nuevo/DparcheMovil/app/src/main/res/layout/activity_eventos.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/Nuevo/DparcheMovil/app/src/main/res/layout/item_eventos.xml" value="0.3625" />

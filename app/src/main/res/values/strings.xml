@@ -23,7 +23,7 @@
     <string name="colision">Colisión</string>
     <string name="ob">Observación</string>
     <string name="Ubicacion">Ubicacion</string>
-    
+
     <string-array name="categorias">
         <item>Restaurante</item>
         <item>Bar</item>
