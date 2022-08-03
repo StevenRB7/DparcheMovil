@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.kamilo.deparche" >
+    package="com.kamilo.deparche">
 
     <uses-feature
         android:name="android.hardware.camara"
@@ -9,6 +9,7 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.hardware.location.gps" />
@@ -18,63 +19,52 @@
 
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/logod"
         android:label="@string/app_name"
         android:roundIcon="@drawable/logod"
         android:supportsRtl="true"
         android:theme="@style/Theme.DeParche"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31" >
+        tools:targetApi="31">
         <activity
-            android:name=".Listar"
-            android:exported="false" />
+            android:name=".Mensajes" android:parentActivityName=".Home" />
         <activity
-            android:name=".CrearFrase"
-            android:exported="false" />
+            android:name=".Home" />
+        <activity
+            android:name=".Listar" />
+        <activity
+            android:name=".CrearFrase" />
         <activity
             android:name=".Popud"
-            android:exported="false"
             android:theme="@style/AppTheme.pup" />
         <activity
             android:name=".Perfil"
-            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Eventos"
-            android:exported="false" />
+            android:name=".Eventos" />
         <activity
-            android:name=".Busqueda"
-            android:exported="false" />
+            android:name=".Busqueda" />
         <activity
             android:name=".Publicar"
-            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Categoria"
-            android:exported="false" />
+            android:name=".Categoria" />
         <activity
-            android:name=".Emociones"
-            android:exported="false" />
+            android:name=".Emociones" />
         <activity
             android:name=".InicioNav"
-            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".vereficarsi"
-            android:exported="false" />
+            android:name=".vereficarsi" />
         <activity
             android:name=".OlvidarContra"
-            android:exported="false"
             android:screenOrientation="fullSensor" />
         <activity
-            android:name=".Login"
-            android:exported="false" />
+            android:name=".Login" />
         <activity
             android:name=".Splash"
             android:exported="true"
-            android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen" >
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -82,12 +72,12 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".Fcm"
+        <service
+            android:name=".Fcm"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-
         </service>
 
         <provider
@@ -97,11 +87,8 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" >
-
-            </meta-data>
+                android:resource="@xml/provider_paths" />
         </provider>
-
     </application>
 
 </manifest>

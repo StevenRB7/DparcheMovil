@@ -56,7 +56,7 @@ public class Fcm extends FirebaseMessagingService {
 
 
             mayorqueoreo(titulo,body );
-            mayorqueoreo(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());
+            /*mayorqueoreo(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());*/
 
         }
     }

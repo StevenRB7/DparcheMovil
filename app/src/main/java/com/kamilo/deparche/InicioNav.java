@@ -145,6 +145,9 @@ public class InicioNav extends AppCompatActivity {
         LottieAnimationView frases = findViewById(R.id.verFrases);
         crearFrases = findViewById(R.id.verFrases);
 
+        LottieAnimationView chat = findViewById(R.id.verChat);
+
+
         fab = findViewById(R.id.agregar);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -220,7 +223,6 @@ public class InicioNav extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(InicioNav.this, Popud.class);
                 startActivity(intent);
-                frases.pauseAnimation();
                 class Crear implements View.OnClickListener {
 
                     @Override
@@ -236,5 +238,20 @@ public class InicioNav extends AppCompatActivity {
 
             }
         });
+
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(InicioNav.this, Home.class);
+                startActivity(intent);
+                /*chat.pauseAnimation();*/
+
+            }
+        });
+
+
+
+
     }
 }
