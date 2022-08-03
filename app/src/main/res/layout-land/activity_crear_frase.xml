@@ -81,21 +81,22 @@
 
     <EditText
         android:id="@+id/etxtMensaje"
-        android:layout_width="281dp"
-        android:layout_height="113dp"
-        android:gravity=""
+        android:layout_width="278dp"
+        android:layout_height="162dp"
+        android:gravity="bottom"
         android:hint="@string/mensaje3"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.815"
+        app:layout_constraintHorizontal_bias="0.816"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.248" />
 
     <Button
         android:id="@+id/btnUno"
-        android:layout_width="188dp"
-        android:layout_height="44dp"
+        android:layout_width="195dp"
+        android:layout_height="48dp"
         android:backgroundTint="@color/azul"
         android:text="Agregar"
         android:textSize="20sp"
