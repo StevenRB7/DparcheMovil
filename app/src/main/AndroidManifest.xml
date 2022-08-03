@@ -43,7 +43,8 @@
         <activity
             android:name=".Eventos" />
         <activity
-            android:name=".Busqueda" />
+            android:name=".Busqueda"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Publicar"
             android:screenOrientation="portrait" />

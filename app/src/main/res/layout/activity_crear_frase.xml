@@ -74,7 +74,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.11" />
+        app:layout_constraintVertical_bias="0.11"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/etxtMensaje"
@@ -93,7 +94,7 @@
         android:id="@+id/btnUno"
         android:layout_width="188dp"
         android:layout_height="53dp"
-        android:backgroundTint="#27ABF1"
+        android:backgroundTint="@color/azul"
         android:text="Agregar"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

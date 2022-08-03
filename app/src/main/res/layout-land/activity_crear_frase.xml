@@ -10,22 +10,21 @@
 
     <TextView
         android:id="@+id/etxtUno"
-        android:layout_width="392dp"
-        android:layout_height="31dp"
+        android:layout_width="288dp"
+        android:layout_height="37dp"
         android:layout_gravity="center"
         android:layout_marginStart="13dp"
         android:layout_marginEnd="16dp"
         android:gravity=""
-        android:text="@string/bienvenida"
+        android:text="@string/bienvenido"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.623"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.015" />
-
+        app:layout_constraintVertical_bias="0.042" />
 
     <TextView
         android:id="@+id/txdos"
@@ -44,7 +43,8 @@
         app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123" />
+        app:layout_constraintVertical_bias="0.123"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/etxtCategoria"
@@ -58,7 +58,8 @@
         app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.434" />
+        app:layout_constraintVertical_bias="0.434"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/txtres"
@@ -72,38 +73,38 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
+        app:layout_constraintHorizontal_bias="0.579"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.213" />
+        app:layout_constraintVertical_bias="0.213"
+         android:visibility="gone"/>
 
     <EditText
         android:id="@+id/etxtMensaje"
         android:layout_width="281dp"
         android:layout_height="113dp"
         android:gravity=""
-        android:hint="@string/mensaje2"
+        android:hint="@string/mensaje3"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.935"
+        app:layout_constraintHorizontal_bias="0.815"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.426" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnUno"
         android:layout_width="188dp"
         android:layout_height="44dp"
-        android:backgroundTint="#66CAFF"
+        android:backgroundTint="@color/azul"
         android:text="Agregar"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.768"
+        app:layout_constraintVertical_bias="0.765"
 
         />
 
@@ -122,6 +123,20 @@
         app:layout_constraintVertical_bias="0.803"
         android:visibility="gone"
         />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/palmera"
+        android:layout_width="203dp"
+        android:layout_height="218dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.322"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/mensajee" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btn_nav"

@@ -296,7 +296,7 @@ public class Publicar extends AppCompatActivity {
             json.put("to", "/topics/"+"notificaciondeparche");
             JSONObject notificacion = new JSONObject();
             notificacion.put("titulo", "D'Parche");
-            notificacion.put("body", "¡Nuevo evento publicado!");
+            notificacion.put("body", "¡Nuevo sitío publicado! ven disfruta con nosotros");
             //notificacion.put("foto", urlfoto);
 
             json.put("data",notificacion);
