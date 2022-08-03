@@ -14,6 +14,7 @@
         <entry key="..\:/Users/ADMIN/Desktop/DparcheHoy/DparcheMovil/app/src/main/res/layout/item.xml" value="0.33" />
         <entry key="..\:/Users/ADMIN/Desktop/DparcheMovil/app/src/main/res/drawable/home.xml" value="0.323" />
         <entry key="..\:/Users/ADMIN/Desktop/DparcheMovil/app/src/main/res/layout-land/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/ADMIN/Desktop/DparcheMovil/app/src/main/res/layout/activity_busqueda.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/DparcheMovil/app/src/main/res/layout/activity_crear_frase.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/DparcheMovil/app/src/main/res/layout/activity_inicio_nav.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/DparcheMovil/app/src/main/res/layout/activity_listar.xml" value="0.3625" />
@@ -81,7 +82,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
