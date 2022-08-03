@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -51,6 +52,9 @@ public class InicioNav extends AppCompatActivity {
 
     FloatingActionButton fab;
 
+    SwipeRefreshLayout refreshLayout2;
+    int number = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +72,7 @@ public class InicioNav extends AppCompatActivity {
         llenarLista();
         referenciar();
         referenciar2();
+        //referenciar3();
     }
 
     private void llenarLista() {
@@ -101,6 +106,22 @@ public class InicioNav extends AppCompatActivity {
                     }
                 });
     }
+/*    private void referenciar3() {
+
+        refreshLayout2 = findViewById(R.id.refresh2);
+        refreshLayout2.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                number++;
+                Toast.makeText(InicioNav.this, "Actualizado", Toast.LENGTH_LONG).show();
+
+                refreshLayout2.setRefreshing(false);
+
+            }
+        });
+
+    }*/
     //navegation boton
     private void referenciar2() {
 
@@ -245,7 +266,7 @@ public class InicioNav extends AppCompatActivity {
 
                 Intent intent = new Intent(InicioNav.this, Home.class);
                 startActivity(intent);
-                /*chat.pauseAnimation();*/
+
 
             }
         });
@@ -254,4 +275,6 @@ public class InicioNav extends AppCompatActivity {
 
 
     }
+
+
 }

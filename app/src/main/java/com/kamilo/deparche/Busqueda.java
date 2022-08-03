@@ -44,7 +44,7 @@ public class Busqueda extends Activity implements SearchView.OnQueryTextListener
     SearchView buscador;
 
     SwipeRefreshLayout refreshLayout;
-    TextView textView;
+
 
     int number = 0;
 
@@ -65,7 +65,7 @@ public class Busqueda extends Activity implements SearchView.OnQueryTextListener
         //navigation button
         referenciar2();
         //refrescar layout
-        /*   referenciar3();*/
+          referenciar3();
         //llenar arreglo
         llenarlista();
         //lista
@@ -73,16 +73,14 @@ public class Busqueda extends Activity implements SearchView.OnQueryTextListener
     }
 
 
-   /* private void referenciar3() {
+   private void referenciar3() {
 
         refreshLayout = findViewById(R.id.refresh);
-        textView = findViewById(R.id.txtre);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
 
                 number++;
-                textView.setText("Buscando");
                 Toast.makeText(Busqueda.this, "No hay nada que mostrar", Toast.LENGTH_LONG).show();
 
                 refreshLayout.setRefreshing(false);
@@ -90,7 +88,7 @@ public class Busqueda extends Activity implements SearchView.OnQueryTextListener
             }
         });
 
-    }*/
+    }
 
     private void llenarlista() {
 
