@@ -1,7 +1,6 @@
 package com.kamilo.deparche.pojos;
 
 public class Solicitudes {
-
     String estado;
     String idchat;
 

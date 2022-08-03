@@ -27,41 +27,36 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Mensajes" android:parentActivityName=".Home" />
+            android:name=".Mensajes"
+            android:exported="false" />
         <activity
-            android:name=".Home" />
-        <activity
-            android:name=".Listar" />
-        <activity
-            android:name=".CrearFrase" />
+            android:name=".Home"
+            android:exported="false" />
+        <activity android:name=".Listar" />
+        <activity android:name=".CrearFrase" />
         <activity
             android:name=".Popud"
             android:theme="@style/AppTheme.pup" />
         <activity
             android:name=".Perfil"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".Eventos" />
+        <activity android:name=".Eventos" />
         <activity
             android:name=".Busqueda"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Publicar"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".Categoria" />
-        <activity
-            android:name=".Emociones" />
+        <activity android:name=".Categoria" />
+        <activity android:name=".Emociones" />
         <activity
             android:name=".InicioNav"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".vereficarsi" />
+        <activity android:name=".vereficarsi" />
         <activity
             android:name=".OlvidarContra"
             android:screenOrientation="fullSensor" />
-        <activity
-            android:name=".Login" />
+        <activity android:name=".Login" />
         <activity
             android:name=".Splash"
             android:exported="true"

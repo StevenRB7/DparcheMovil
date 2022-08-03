@@ -32,13 +32,13 @@ import java.util.List;
 
 public class AdapterChatLista extends RecyclerView.Adapter<AdapterChatLista.viewHolderAdapterChatList> {
 
-   List<Users> userList;
-   Context context;
+    List<Users> userList;
+    Context context;
 
-   FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-   FirebaseDatabase database = FirebaseDatabase.getInstance();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-   SharedPreferences mPref;
+    SharedPreferences mPref;
 
 
     public AdapterChatLista(List<Users> userList, Context context) {

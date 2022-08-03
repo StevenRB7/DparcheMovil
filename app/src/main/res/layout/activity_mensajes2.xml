@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gris"
+            android:background="@color/colorPrimary"
             android:theme="@style/MenuStyle">
 
             <de.hdodenhof.circleimageview.CircleImageView

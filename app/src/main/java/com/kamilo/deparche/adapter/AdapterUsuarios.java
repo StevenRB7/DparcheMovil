@@ -17,7 +17,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,13 +33,13 @@ import java.util.List;
 
 public class AdapterUsuarios extends RecyclerView.Adapter<AdapterUsuarios.viewHolderAdapter> {
 
-   List<Users> userList;
-   Context context;
+    List<Users> userList;
+    Context context;
 
-   FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-   FirebaseDatabase database = FirebaseDatabase.getInstance();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-   SharedPreferences mPref;
+    SharedPreferences mPref;
 
     public AdapterUsuarios(List<Users> userList, Context context) {
         this.userList = userList;
@@ -50,10 +49,8 @@ public class AdapterUsuarios extends RecyclerView.Adapter<AdapterUsuarios.viewHo
     @NonNull
     @Override
     public viewHolderAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_usuarios,parent,false);
         viewHolderAdapter holder = new viewHolderAdapter(v);
-
         return holder;
     }
 
@@ -78,19 +75,19 @@ public class AdapterUsuarios extends RecyclerView.Adapter<AdapterUsuarios.viewHo
         ref_mis_botones.child(userss.getId()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-              String estado = snapshot.child("estado").getValue(String.class);
+                String estado = snapshot.child("estado").getValue(String.class);
 
                 if (snapshot.exists()){
-                  if(estado.equals("enviado")){
+                    if(estado.equals("enviado")){
 
-                      holder.send.setVisibility(View.VISIBLE);
-                      holder.add.setVisibility(View.GONE);
-                      holder.amigos.setVisibility(View.GONE);
-                      holder.solicitud.setVisibility(View.GONE);
-                      holder.progressBar.setVisibility(View.GONE);
+                        holder.send.setVisibility(View.VISIBLE);
+                        holder.add.setVisibility(View.GONE);
+                        holder.amigos.setVisibility(View.GONE);
+                        holder.solicitud.setVisibility(View.GONE);
+                        holder.progressBar.setVisibility(View.GONE);
 
-                  }
-                  if(estado.equals("amigos")){
+                    }
+                    if(estado.equals("amigos")){
 
                         holder.send.setVisibility(View.GONE);
                         holder.add.setVisibility(View.GONE);
@@ -108,7 +105,7 @@ public class AdapterUsuarios extends RecyclerView.Adapter<AdapterUsuarios.viewHo
                         holder.progressBar.setVisibility(View.GONE);
 
                     }
-              }else {
+                }else {
 
                     holder.send.setVisibility(View.GONE);
                     holder.add.setVisibility(View.VISIBLE);
@@ -136,7 +133,7 @@ public class AdapterUsuarios extends RecyclerView.Adapter<AdapterUsuarios.viewHo
 
                         Solicitudes sol = new Solicitudes("enviado","");
 
-                            A.child(userss.getId()).setValue(sol);
+                        A.child(userss.getId()).setValue(sol);
 
                     }
 
@@ -153,7 +150,7 @@ public class AdapterUsuarios extends RecyclerView.Adapter<AdapterUsuarios.viewHo
 
                         Solicitudes sol = new Solicitudes("solicitud","");
 
-                            B.child(user.getUid()).setValue(sol);
+                        B.child(user.getUid()).setValue(sol);
 
                     }
 
@@ -191,95 +188,93 @@ public class AdapterUsuarios extends RecyclerView.Adapter<AdapterUsuarios.viewHo
             }//final del onclick
         });
 
-       holder.solicitud.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
+        holder.solicitud.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-               final String idchat = ref_mis_botones.push().getKey();
+                final String idchat = ref_mis_botones.push().getKey();
 
-               DatabaseReference A = database.getReference("Solicitudes").child(userss.getId()).child(user.getUid());
-               A.addListenerForSingleValueEvent(new ValueEventListener() {
-                   @Override
-                   public void onDataChange(@NonNull DataSnapshot snapshot) {
+                DatabaseReference A = database.getReference("Solicitudes").child(userss.getId()).child(user.getUid());
+                A.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                       Solicitudes sol = new Solicitudes("amigos",idchat);
+                        Solicitudes sol = new Solicitudes("amigos",idchat);
 
-                       A.setValue(sol);
+                        A.setValue(sol);
 
-                   }
+                    }
 
-                   @Override
-                   public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                   }
-               });
+                    }
+                });
 
-               DatabaseReference B = database.getReference("Solicitudes").child(user.getUid()).child(userss.getId());
-               A.addListenerForSingleValueEvent(new ValueEventListener() {
-                   @Override
-                   public void onDataChange(@NonNull DataSnapshot snapshot) {
+                DatabaseReference B = database.getReference("Solicitudes").child(user.getUid()).child(userss.getId());
+                A.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                       Solicitudes sol = new Solicitudes("amigos",idchat);
+                        Solicitudes sol = new Solicitudes("amigos",idchat);
 
-                       B.setValue(sol);
+                        B.setValue(sol);
 
-                   }
+                    }
 
-                   @Override
-                   public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                   }
-               });
+                    }
+                });
 
-               vibrator.vibrate(1000);
+                vibrator.vibrate(1000);
 
-           }
-       });
+            }
+        });
 
-       holder.amigos.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
+        holder.amigos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-               mPref = view.getContext().getSharedPreferences("usuario_sp",Context.MODE_PRIVATE);
-               SharedPreferences.Editor editor = mPref.edit();
+                mPref = view.getContext().getSharedPreferences("usuario_sp",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = mPref.edit();
 
 
-               DatabaseReference ref = database.getReference("Solicitudes").child(user.getUid()).child(userss.getId()).child("idchat");
+                DatabaseReference ref = database.getReference("Solicitudes").child(user.getUid()).child(userss.getId()).child("idchat");
 
-               ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                   @Override
-                   public void onDataChange(@NonNull DataSnapshot snapshot) {
-                       String id_unico = snapshot.getValue(String.class);
+                ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String id_unico = snapshot.getValue(String.class);
 
-                       if (snapshot.exists()){
-                           Intent intent = new Intent(view.getContext(), Mensajes.class);
-                           intent.putExtra("nombre",userss.getNombre());
-                           intent.putExtra("img_user",userss.getFoto());
-                           intent.putExtra("id_user",userss.getId());
-                           intent.putExtra("id_unico",id_unico);
-                           editor.putString("usuario_sp",userss.getId());
-                           editor.apply();
-                           view.getContext().startActivity(intent);
-                       }
+                        if (snapshot.exists()){
+                            Intent intent = new Intent(view.getContext(), Mensajes.class);
+                            intent.putExtra("nombre",userss.getNombre());
+                            intent.putExtra("img_user",userss.getFoto());
+                            intent.putExtra("id_user",userss.getId());
+                            intent.putExtra("id_unico",id_unico);
+                            editor.putString("usuario_sp",userss.getId());
+                            editor.apply();
+                            view.getContext().startActivity(intent);
+                        }
 
-                   }
+                    }
 
-                   @Override
-                   public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                   }
-               });
+                    }
+                });
 
-           }
-       });
+            }
+        });
 
 
     }
 
     @Override
-    public int getItemCount() {
-        return userList.size();
-    }
+    public int getItemCount() {return userList.size();}
 
     public class viewHolderAdapter extends RecyclerView.ViewHolder {
 
@@ -289,7 +284,6 @@ public class AdapterUsuarios extends RecyclerView.Adapter<AdapterUsuarios.viewHo
 
         Button add,send,amigos,solicitud;
         ProgressBar progressBar;
-
 
         public viewHolderAdapter(@NonNull View itemView) {
             super(itemView);

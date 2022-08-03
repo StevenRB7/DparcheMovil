@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.kamilo.deparche.Mensajes;
 import com.kamilo.deparche.R;
 import com.kamilo.deparche.pojos.Chats;
 
@@ -20,35 +21,34 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class AdapterChats extends RecyclerView.Adapter<AdapterChats.viewHolderAdapter> {
+public class AdapterChats extends RecyclerView.Adapter<AdapterChats.viewHolderAdapter>{
+    List<Chats> chatsList;
+    Context context;
+    public static final int MENSAJE_RIGHT = 1;
+    public static final int MENSAJE_LEFT = 0;
+    Boolean soloright = false;
+    FirebaseUser fuser;
 
-     List<Chats> chatsList;
-     Context context;
-     public static final int MENSAJE_RIGHT = 1;
-     public static final int MENSAJE_LEFT = 0;
-     Boolean soloright = false;
-     FirebaseUser fuser;
-
-    public AdapterChats(ArrayList<Chats> chatsList, Context context) {
+    public AdapterChats(List<Chats> chatsList, Context context) {
         this.chatsList = chatsList;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public viewHolderAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdapterChats.viewHolderAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         if(viewType == MENSAJE_RIGHT){
             View view = LayoutInflater.from(context).inflate(R.layout.chat_item_rigth,parent,false);
-            return new viewHolderAdapter(view);
+            return new AdapterChats.viewHolderAdapter(view);
         }else {
             View view = LayoutInflater.from(context).inflate(R.layout.chat_item_legth,parent,false);
-            return new viewHolderAdapter(view);
+            return new AdapterChats.viewHolderAdapter(view);
         }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull viewHolderAdapter holder, int position) {
+    public void onBindViewHolder(@NonNull AdapterChats.viewHolderAdapter holder, int position) {
 
         Chats chats = chatsList.get(position);
 
@@ -68,7 +68,7 @@ public class AdapterChats extends RecyclerView.Adapter<AdapterChats.viewHolderAd
             final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
             if(chats.getFecha().equals(dateFormat.format(c.getTime()))){
-                   holder.txt_fecha.setText("hoy "+chats.getHora());
+                holder.txt_fecha.setText("hoy "+chats.getHora());
             }else {
                 holder.txt_fecha.setText(chats.getFecha()+ " " + chats.getHora());
             }

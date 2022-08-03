@@ -58,5 +58,7 @@
     <string name="Galeria">Galeria</string>
     <string name="bienvenido">Crea una frase</string>
     <string name="mensaje3">Escribe tu frase</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

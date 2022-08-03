@@ -37,7 +37,7 @@ public class Mensajes extends AppCompatActivity {
 
     CircleImageView img_user;
     TextView user_name;
-    ImageView ic_conectado, ic_desconectado;
+    ImageView ic_conectado,ic_desconectado;
     SharedPreferences mPref;
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -64,11 +64,11 @@ public class Mensajes extends AppCompatActivity {
         finish();
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mensajes);
-
+        setContentView(R.layout.activity_mensajes2);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -76,7 +76,7 @@ public class Mensajes extends AppCompatActivity {
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mPref = getApplicationContext().getSharedPreferences("usuario_sp", MODE_PRIVATE);
+        mPref = getApplicationContext().getSharedPreferences("usuario_sp",MODE_PRIVATE);
 
         img_user = findViewById(R.id.img_userT);
         user_name = findViewById(R.id.txtuser);
@@ -91,7 +91,6 @@ public class Mensajes extends AppCompatActivity {
 
         colocarenvisto();
 
-
         et_mensaje = findViewById(R.id.et_txt_mensaje);
         ev_mensaje = findViewById(R.id.btn_enviar);
         ev_mensaje.setOnClickListener(new View.OnClickListener() {
@@ -100,39 +99,37 @@ public class Mensajes extends AppCompatActivity {
 
                 String msj = et_mensaje.getText().toString();
 
-                if (!msj.isEmpty()) {
+                if(!msj.isEmpty()){
                     final Calendar c = Calendar.getInstance();
                     final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     final SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
                     String idpush = ref_chat.push().getKey();
 
-                    if (amigo_online) {
-                        Chats chatsmj = new Chats(idpush, user.getUid(), id_user, msj, "si", dateFormat.format(c.getTime()), timeFormat.format(c.getTime()));
+                    if (amigo_online){
+                        Chats chatsmj = new Chats(idpush,user.getUid(),id_user,msj,"si",dateFormat.format(c.getTime()),timeFormat.format(c.getTime()));
                         ref_chat.child(id_chat_global).child(idpush).setValue(chatsmj);
                         Toast.makeText(Mensajes.this, " Mensaje enviado ", Toast.LENGTH_SHORT).show();
                         et_mensaje.setText("");
-                    } else {
-                        Chats chatsmj = new Chats(idpush, user.getUid(), id_user, msj, "no", dateFormat.format(c.getTime()), timeFormat.format(c.getTime()));
+                    }else {
+                        Chats chatsmj = new Chats(idpush,user.getUid(),id_user,msj,"no",dateFormat.format(c.getTime()),timeFormat.format(c.getTime()));
                         ref_chat.child(id_chat_global).child(idpush).setValue(chatsmj);
                         Toast.makeText(Mensajes.this, " Mensaje enviado ", Toast.LENGTH_SHORT).show();
                         et_mensaje.setText("");
                     }
 
 
-                } else {
+                }else {
                     Toast.makeText(Mensajes.this, "El mensaje esta vacio", Toast.LENGTH_SHORT).show();
                 }
-
 
             }
         });
 
-        final String id_user_sp = mPref.getString("usuario_sp", "");
+        final  String id_user_sp = mPref.getString("usuario_sp","");
 
         user_name.setText(usuario);
         Glide.with(this).load(foto).into(img_user);
-
 
         DatabaseReference ref = database.getReference("Estado").child(id_user_sp).child("chatcon");
         ref.addValueEventListener(new ValueEventListener() {
@@ -141,12 +138,12 @@ public class Mensajes extends AppCompatActivity {
 
                 String chatcon = snapshot.getValue(String.class);
 
-                if (snapshot.exists()) {
-                    if (chatcon.equals(user.getUid())) {
+                if (snapshot.exists()){
+                    if(chatcon.equals(user.getUid())){
                         amigo_online = true;
                         ic_conectado.setVisibility(View.VISIBLE);
                         ic_desconectado.setVisibility(View.GONE);
-                    } else {
+                    }else {
                         amigo_online = false;
                         ic_desconectado.setVisibility(View.VISIBLE);
                         ic_conectado.setVisibility(View.GONE);
@@ -162,7 +159,6 @@ public class Mensajes extends AppCompatActivity {
         });
 
         //rv
-
         rv_chats = findViewById(R.id.rv);
         rv_chats.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -170,20 +166,20 @@ public class Mensajes extends AppCompatActivity {
         rv_chats.setLayoutManager(linearLayoutManager);
 
         chatslist = new ArrayList<>();
-        adapter = new AdapterChats(chatslist, this);
+        adapter = new AdapterChats(chatslist,this);
         rv_chats.setAdapter(adapter);
 
         LeerMensajes();
-    }//fin
-
+    }
     private void colocarenvisto() {
+
         ref_chat.child(id_chat_global).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Chats chats = snapshot.getValue(Chats.class);
 
-                    if (chats.getRecibe().equals(user.getUid())) {
+                    if (chats.getRecibe().equals(user.getUid())){
                         ref_chat.child(id_chat_global).child(chats.getId()).child("visto").setValue("si");
                     }
 
@@ -202,9 +198,9 @@ public class Mensajes extends AppCompatActivity {
         ref_chat.child(id_chat_global).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
+                if(dataSnapshot.exists()){
                     chatslist.removeAll(chatslist);
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                         Chats chat = snapshot.getValue(Chats.class);
                         chatslist.add(chat);
                         setScroll();
@@ -212,17 +208,15 @@ public class Mensajes extends AppCompatActivity {
                     adapter.notifyDataSetChanged();
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-
     }
 
     private void setScroll() {
-        rv_chats.scrollToPosition(adapter.getItemCount() - 1);
+        rv_chats.scrollToPosition(adapter.getItemCount()-1);
     }
 
     private void estadoUser(String estado) {
@@ -230,9 +224,9 @@ public class Mensajes extends AppCompatActivity {
         ref_estado.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                final String id_user_sp = mPref.getString("usuario_sp", "");
+                final  String id_user_sp = mPref.getString("usuario_sp","");
 
-                Estado est = new Estado(estado, "", "", id_user_sp);
+                Estado est = new Estado(estado,"","",id_user_sp);
                 ref_estado.setValue(est);
             }
 
@@ -241,7 +235,6 @@ public class Mensajes extends AppCompatActivity {
 
             }
         });
-
     }
 
 
@@ -277,5 +270,7 @@ public class Mensajes extends AppCompatActivity {
 
             }
         });
+
     }
+
 }

@@ -7,9 +7,8 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
@@ -41,14 +40,15 @@ public class Home extends AppCompatActivity {
     DatabaseReference ref_soli_count = database.getReference("Contador").child(user.getUid());
     DatabaseReference ref_estado = database.getReference("Estado").child(user.getUid());
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
         ViewPager2 viewPager2 = findViewById(R.id.viewPage);
         viewPager2.setAdapter(new PaginasAdapter(this));
+
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
@@ -104,8 +104,10 @@ public class Home extends AppCompatActivity {
                     }
                 }
 
+
             }
         });
+
         tabLayoutMediator.attach();
 
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
@@ -122,14 +124,14 @@ public class Home extends AppCompatActivity {
             }
         });
 
-
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         userunico();
 
+
     }
 
-    private void estadoUser(String estado) {
+    private void estadoUser (String estado){
 
         ref_estado.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -143,9 +145,7 @@ public class Home extends AppCompatActivity {
 
             }
         });
-
     }
-
 
     @Override
     protected void onResume() {
@@ -162,7 +162,6 @@ public class Home extends AppCompatActivity {
     }
 
     private void dameultimafecha() {
-
         Calendar c = Calendar.getInstance();
         SimpleDateFormat timeformat = new SimpleDateFormat("HH:mm");
         SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
@@ -182,7 +181,6 @@ public class Home extends AppCompatActivity {
     }
 
     private void countacero() {
-
         ref_soli_count.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -200,7 +198,6 @@ public class Home extends AppCompatActivity {
     }
 
     private void userunico() {
-
         ref_user.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -224,23 +221,12 @@ public class Home extends AppCompatActivity {
 
             }
         });
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_item,menu);
-
-        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-
             case R.id.item_cerrar:
 
                 AuthUI.getInstance()
@@ -253,8 +239,8 @@ public class Home extends AppCompatActivity {
                             }
                         });
 
-                Toast.makeText(Home.this, "Cerrando Sesion", Toast.LENGTH_SHORT).show();
         }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -264,5 +250,6 @@ public class Home extends AppCompatActivity {
         Intent i = new Intent(this,Login.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
+
     }
 }
