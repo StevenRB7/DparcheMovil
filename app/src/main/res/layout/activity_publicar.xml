@@ -169,18 +169,19 @@
         android:layout_height="22dp"
         android:gravity="center"
         android:hint="@string/longitud"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.744" />
+        app:layout_constraintVertical_bias="0.744"
+        />
 
     <TextView
         android:id="@+id/textlatitudpublicacion"
-        android:layout_width="166dp"
-        android:layout_height="22dp"
+        android:layout_width="216dp"
+        android:layout_height="33dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
 

@@ -28,15 +28,14 @@
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/refresh"
-            android:layout_width="381dp"
-            android:layout_height="661dp"
-            android:layout_marginBottom="60dp"
-            >
+            android:layout_width="match_parent"
+            android:layout_height="710dp"
+            android:layout_marginBottom="60dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcbuscador"
-                android:layout_width="381dp"
-                android:layout_height="661dp"
+                android:layout_width="419dp"
+                android:layout_height="710dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

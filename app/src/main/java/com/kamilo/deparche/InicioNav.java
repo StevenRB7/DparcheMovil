@@ -136,6 +136,7 @@ public class InicioNav extends AppCompatActivity {
                 toast3.setDuration(Toast.LENGTH_SHORT);
                 toast3.setView(layout);
                 toast3.show();
+
                 refreshLayout2.setRefreshing(false);
 
             }
