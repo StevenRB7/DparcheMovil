@@ -276,6 +276,7 @@ public class InicioNav extends AppCompatActivity {
                 Snackbar mySnackbar = Snackbar.make(findViewById(R.id.verFrases),
                         R.string.snask, Snackbar.LENGTH_SHORT);
                 mySnackbar.setAction(R.string.Crear, new Crear());
+
                 mySnackbar.show();
 
             }

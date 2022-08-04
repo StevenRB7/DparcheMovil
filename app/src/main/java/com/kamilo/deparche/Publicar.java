@@ -374,7 +374,7 @@ public class Publicar extends AppCompatActivity {
                                         (ViewGroup) findViewById(R.id.lytLayout));
 
                                 TextView txtMsg = (TextView)layout.findViewById(R.id.toasttxt);
-                                txtMsg.setText("Punlicacion realizada");
+                                txtMsg.setText("Publicación realizada");
                                 toast4.setDuration(Toast.LENGTH_SHORT);
                                 toast4.setView(layout);
                                 toast4.show();
@@ -443,7 +443,6 @@ public class Publicar extends AppCompatActivity {
                     campos.show();
 
                 }else {
-                    Toast.makeText(Publicar.this, "Datos insertados correctamente", Toast.LENGTH_SHORT).show();
                     Intent intentt = new Intent(Publicar.this, InicioNav.class);
                     startActivity(intentt);
                 }
