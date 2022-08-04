@@ -56,6 +56,7 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
 
         Glide.with(context).load(datos.getUrl()).into(holder.foto);
         holder.observa.setText(datos.getDescripciones());
+        holder.ubicacion.setText(datos.getUbicacion());
         holder.tiempito.setText(DateFormat.format("EEEE  dd LLL yyyy",datos.getTiempo()));
         holder.cate.setText(datos.getCategorias());
 
@@ -95,7 +96,7 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView observa, tiempito, cate, nomGmail;
+        TextView observa, tiempito, cate, nomGmail, ubicacion;
         ImageView foto, perfil;
 
         public ViewHolder(@NonNull View itemView) {
@@ -107,6 +108,7 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
             cate = itemView.findViewById(R.id.txtCate);
             nomGmail = itemView.findViewById(R.id.nomUsuarioItem);
             perfil = itemView.findViewById(R.id.imgPerfilItem);
+            ubicacion = itemView.findViewById(R.id.cardubicacion);
 
         }
     }

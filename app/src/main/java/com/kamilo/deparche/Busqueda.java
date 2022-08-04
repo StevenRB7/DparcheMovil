@@ -107,9 +107,10 @@ public class Busqueda extends Activity implements SearchView.OnQueryTextListener
                                 String cadenacorrename = document.getString("correo name");
                                 String cadenanamecorreo = document.getString("nombre");
                                 String cadenafoto = document.getString("foto correo");
+                                String cadenaubi = document.getString("ubicacion");
 
 
-                                Datos datos = new Datos(tiempo,cadenaurl,cadenadesc,cadenacate,cadenaides,cadenacorrename,cadenanamecorreo,cadenafoto);
+                                Datos datos = new Datos(tiempo,cadenaurl,cadenadesc,cadenacate,cadenaides,cadenacorrename,cadenanamecorreo,cadenafoto,cadenaubi);
                                 listDatos.add(datos);
 
                                 adaptadorDatos = new AdaptadorDatos(Busqueda.this,listDatos);

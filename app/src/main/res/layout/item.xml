@@ -95,11 +95,10 @@
                 android:src="@drawable/galeria" />
 
             <TextView
-                android:id="@+id/ubicacion"
+                android:id="@+id/cardubicacion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Ubicacion"
-                android:textColor="@color/black"
                 android:textStyle="bold" />
 
         </LinearLayout>

@@ -102,11 +102,9 @@ public class Publicar extends AppCompatActivity {
     int SELEC_IMAGEN = 200;
 
 
-<<<<<<< HEAD
-    String id, urlObtenida,url,descripciones,categorias,ides,correoname,namecorreo,fotocorreo;
-=======
-    String id, urlObtenida,url,descripciones,categorias, stringlati;
->>>>>>> 65f235c9229b53bff9b6b0526a7b9f3bcd767926
+    String id, urlObtenida,url,descripciones,categorias,ides,correoname,namecorreo,fotocorreo,stringlati,ubicacion;
+
+
     private Uri imageUri = null;
 
     /*   @RequiresApi(api = Build.VERSION_CODES.M)*/
@@ -388,7 +386,7 @@ public class Publicar extends AppCompatActivity {
                                 correoname = user.getEmail();
                                 namecorreo = user.getDisplayName();
                                 fotocorreo = user.getPhotoUrl().toString();
-
+                                ubicacion = lati.getText().toString();
 
                                 SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE-LLL-aaaa", Locale.forLanguageTag("es_ES"));
                                 Date date = new Date();
@@ -397,7 +395,7 @@ public class Publicar extends AppCompatActivity {
 
                                 fechasub = date;
 
-                                Datos datos = new Datos(fechasub, url, descripciones, categorias,ides,correoname,namecorreo,fotocorreo);
+                                Datos datos = new Datos(fechasub, url, descripciones, categorias,ides,correoname,namecorreo,fotocorreo,ubicacion);
 
                                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                                 db.collection("publicacion")

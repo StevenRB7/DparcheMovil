@@ -12,12 +12,13 @@ public class Datos {
     String CorreoNom;
     String NomCorreo;
     String FotoCorreo;
+    String Ubicacion;
 
 
     public Datos() {
     }
 
-    public Datos(Date tiempo, String url, String descripciones, String categorias, String ides, String correoNom, String nomCorreo, String fotoCorreo) {
+    public Datos(Date tiempo, String url, String descripciones, String categorias, String ides, String correoNom, String nomCorreo, String fotoCorreo, String ubicacion) {
         this.tiempo = tiempo;
         Url = url;
         Descripciones = descripciones;
@@ -26,42 +27,91 @@ public class Datos {
         CorreoNom = correoNom;
         NomCorreo = nomCorreo;
         FotoCorreo = fotoCorreo;
+        Ubicacion = ubicacion;
     }
 
-    public Date getTiempo() {return tiempo;}
+    public Date getTiempo() {
+        return tiempo;
+    }
 
-    public void setTiempo(Date tiempo) {this.tiempo = tiempo;}
+    public void setTiempo(Date tiempo) {
+        this.tiempo = tiempo;
+    }
 
-    public String getUrl() {return Url;}
+    public String getUrl() {
+        return Url;
+    }
 
-    public void setUrl(String url) {Url = url;}
+    public void setUrl(String url) {
+        Url = url;
+    }
 
-    public String getDescripciones() {return Descripciones;}
+    public String getDescripciones() {
+        return Descripciones;
+    }
 
-    public void setDescripciones(String descripciones) {Descripciones = descripciones;}
+    public void setDescripciones(String descripciones) {
+        Descripciones = descripciones;
+    }
 
-    public String getCategorias() {return Categorias;}
+    public String getCategorias() {
+        return Categorias;
+    }
 
-    public void setCategorias(String categorias) {Categorias = categorias;}
+    public void setCategorias(String categorias) {
+        Categorias = categorias;
+    }
 
-    public String getIdes() {return Ides;}
+    public String getIdes() {
+        return Ides;
+    }
 
-    public void setIdes(String ides) {Ides = ides;}
+    public void setIdes(String ides) {
+        Ides = ides;
+    }
 
-    public String getCorreoNom() {return CorreoNom;}
+    public String getCorreoNom() {
+        return CorreoNom;
+    }
 
-    public void setCorreoNom(String correoNom) {CorreoNom = correoNom;}
+    public void setCorreoNom(String correoNom) {
+        CorreoNom = correoNom;
+    }
 
-    public String getNomCorreo() {return NomCorreo;}
+    public String getNomCorreo() {
+        return NomCorreo;
+    }
 
-    public void setNomCorreo(String nomCorreo) {NomCorreo = nomCorreo;}
+    public void setNomCorreo(String nomCorreo) {
+        NomCorreo = nomCorreo;
+    }
 
-    public String getFotoCorreo() {return FotoCorreo;}
+    public String getFotoCorreo() {
+        return FotoCorreo;
+    }
 
-    public void setFotoCorreo(String fotoCorreo) {FotoCorreo = fotoCorreo;}
+    public void setFotoCorreo(String fotoCorreo) {
+        FotoCorreo = fotoCorreo;
+    }
+
+    public String getUbicacion() {
+        return Ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        Ubicacion = ubicacion;
+    }
 
     @Override
     public String toString() {
-        return  tiempo + Url  + Descripciones + Categorias + Ides + CorreoNom + NomCorreo + FotoCorreo ;
+        return  tiempo +
+                 Url +
+                 Descripciones  +
+                 Categorias  +
+                 Ides +
+                 CorreoNom +
+                 NomCorreo  +
+                 FotoCorreo  +
+                 Ubicacion ;
     }
 }
