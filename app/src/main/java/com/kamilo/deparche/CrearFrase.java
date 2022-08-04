@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -106,7 +109,17 @@ public class CrearFrase extends AppCompatActivity {
                 myRef.child(String.valueOf(id = (int)(Math.random()*10000+1))).setValue(datos);
 
                 Intent intent = new Intent(CrearFrase.this,  InicioNav.class);
-                Toast.makeText(CrearFrase.this, " Frase guardada correctamente ", Toast.LENGTH_LONG).show();
+                Toast ff = new Toast(getApplicationContext());
+
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.toast_layout,
+                        (ViewGroup) findViewById(R.id.lytLayout));
+
+                TextView txtMsg = (TextView)layout.findViewById(R.id.toasttxt);
+                txtMsg.setText("Frase agregada");
+                ff.setDuration(Toast.LENGTH_LONG);
+                ff.setView(layout);
+                ff.show();
                 startActivity(intent);
 
 
