@@ -8,52 +8,60 @@ public class Datos {
     String Url;
     String Descripciones;
     String Categorias;
+    String Ides;
+    String CorreoNom;
+    String NomCorreo;
+    String FotoCorreo;
+
 
     public Datos() {
     }
 
-    public Datos(Date tiempo, String url, String descripciones , String categorias) {
+    public Datos(Date tiempo, String url, String descripciones, String categorias, String ides, String correoNom, String nomCorreo, String fotoCorreo) {
         this.tiempo = tiempo;
         Url = url;
         Descripciones = descripciones;
         Categorias = categorias;
+        Ides = ides;
+        CorreoNom = correoNom;
+        NomCorreo = nomCorreo;
+        FotoCorreo = fotoCorreo;
     }
 
-    public String getCategorias() {
-        return Categorias;
-    }
+    public Date getTiempo() {return tiempo;}
 
-    public void setCategorias(String categorias) {
-        Categorias = categorias;
-    }
+    public void setTiempo(Date tiempo) {this.tiempo = tiempo;}
 
-    public Date getTiempo() {
-        return tiempo;
-    }
+    public String getUrl() {return Url;}
 
-    public void setTiempo(Date tiempo) {
-        this.tiempo = tiempo;
-    }
+    public void setUrl(String url) {Url = url;}
 
-    public String getUrl() {
-        return Url;
-    }
+    public String getDescripciones() {return Descripciones;}
 
-    public void setUrl(String url) {
-        Url = url;
-    }
+    public void setDescripciones(String descripciones) {Descripciones = descripciones;}
 
-    public String getDescripciones() {
-        return Descripciones;
-    }
+    public String getCategorias() {return Categorias;}
 
-    public void setDescripciones(String descripciones) {
-        Descripciones = descripciones;
-    }
+    public void setCategorias(String categorias) {Categorias = categorias;}
 
+    public String getIdes() {return Ides;}
+
+    public void setIdes(String ides) {Ides = ides;}
+
+    public String getCorreoNom() {return CorreoNom;}
+
+    public void setCorreoNom(String correoNom) {CorreoNom = correoNom;}
+
+    public String getNomCorreo() {return NomCorreo;}
+
+    public void setNomCorreo(String nomCorreo) {NomCorreo = nomCorreo;}
+
+    public String getFotoCorreo() {return FotoCorreo;}
+
+    public void setFotoCorreo(String fotoCorreo) {FotoCorreo = fotoCorreo;}
 
     @Override
     public String toString() {
-        return tiempo + Url  + Descripciones + Categorias ;
+        return  tiempo + Url  + Descripciones + Categorias + Ides + CorreoNom + NomCorreo + FotoCorreo ;
     }
 }

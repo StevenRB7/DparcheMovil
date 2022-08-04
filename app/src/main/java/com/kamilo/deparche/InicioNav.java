@@ -90,10 +90,13 @@ public class InicioNav extends AppCompatActivity {
                                 String cadenaurl = document.getString("url");
                                 String cadenadesc = document.getString("descripciones");
                                 String cadenacate = document.getString("categorias");
+                                String cadenaides = document.getString("correoId");
+                                String cadenacorrename = document.getString("correoname");
+                                String cadenanamecorreo = document.getString("nombre");
+                                String cadenafoto = document.getString("foto correo");
 
 
-
-                                Datos datos = new Datos(tiempo,cadenaurl,cadenadesc,cadenacate);
+                                Datos datos = new Datos(tiempo,cadenaurl,cadenadesc,cadenacate,cadenaides,cadenacorrename,cadenanamecorreo,cadenafoto);
                                 listDatos.add(datos);
 
                                 adaptadorDatos = new AdaptadorDatos(InicioNav.this,listDatos);

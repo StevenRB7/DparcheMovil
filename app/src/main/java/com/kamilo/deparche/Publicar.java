@@ -42,6 +42,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -69,6 +71,7 @@ public class Publicar extends AppCompatActivity {
     ImageView tomarfoto, subirfoto, obtenerubicacion, publicacion;
     TextView lati, longi;
 
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     Button publicar, cancelar;
 
@@ -86,7 +89,7 @@ public class Publicar extends AppCompatActivity {
     int SELEC_IMAGEN = 200;
 
 
-    String id, urlObtenida,url,descripciones,categorias;
+    String id, urlObtenida,url,descripciones,categorias,ides,correoname,namecorreo,fotocorreo;
     private Uri imageUri = null;
 
     /*   @RequiresApi(api = Build.VERSION_CODES.M)*/
@@ -230,6 +233,11 @@ public class Publicar extends AppCompatActivity {
                                 url = uploadedImageUri;
                                 descripciones = Descripcion.getText().toString();
                                 categorias = spinner.getSelectedItem().toString();
+                                ides = user.getUid();
+                                correoname = user.getEmail();
+                                namecorreo = user.getDisplayName();
+                                fotocorreo = user.getPhotoUrl().toString();
+
 
                                 SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE-LLL-aaaa", Locale.forLanguageTag("es_ES"));
                                 Date date = new Date();
@@ -238,7 +246,7 @@ public class Publicar extends AppCompatActivity {
 
                                 fechasub = date;
 
-                                Datos datos = new Datos(fechasub, url, descripciones, categorias);
+                                Datos datos = new Datos(fechasub, url, descripciones, categorias,ides,correoname,namecorreo,fotocorreo);
 
                                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                                 db.collection("publicacion")
