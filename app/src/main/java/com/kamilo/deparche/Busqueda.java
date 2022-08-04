@@ -81,8 +81,6 @@ public class Busqueda extends Activity implements SearchView.OnQueryTextListener
             public void onRefresh() {
 
                 number++;
-                Toast.makeText(Busqueda.this, "No hay nada que mostrar", Toast.LENGTH_LONG).show();
-
                 refreshLayout.setRefreshing(false);
 
             }
