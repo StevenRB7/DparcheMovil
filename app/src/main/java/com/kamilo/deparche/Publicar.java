@@ -19,7 +19,9 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -225,7 +227,18 @@ public class Publicar extends AppCompatActivity {
                                 Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
                                 while (!uriTask.isSuccessful()) ;
                                 String uploadedImageUri = "" + uriTask.getResult();
-                                Toast.makeText(Publicar.this, "foto enviada correctamente ", Toast.LENGTH_LONG).show();
+                                //Toast.makeText(Publicar.this, "foto enviada correctamente ", Toast.LENGTH_LONG).show();
+                                Toast toast4 = new Toast(getApplicationContext());
+
+                                LayoutInflater inflater = getLayoutInflater();
+                                View layout = inflater.inflate(R.layout.toast_layout,
+                                        (ViewGroup) findViewById(R.id.lytLayout));
+
+                                TextView txtMsg = (TextView)layout.findViewById(R.id.toasttxt);
+                                txtMsg.setText("Punlicacion realizada");
+                                toast4.setDuration(Toast.LENGTH_SHORT);
+                                toast4.setView(layout);
+                                toast4.show();
 
                                 url = uploadedImageUri;
                                 descripciones = Descripcion.getText().toString();
@@ -272,7 +285,19 @@ public class Publicar extends AppCompatActivity {
 
                 }if (!validarfor()){
 
-                    Toast.makeText(Publicar.this, "Faltan campos por llenar ", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(Publicar.this, "Faltan campos por llenar ", Toast.LENGTH_SHORT).show();
+                    Toast campos= new Toast(getApplicationContext());
+
+                    LayoutInflater inflater = getLayoutInflater();
+                    View layout = inflater.inflate(R.layout.toast_layout,
+                            (ViewGroup) findViewById(R.id.lytLayout));
+
+                    TextView txtMsg = (TextView)layout.findViewById(R.id.toasttxt);
+                    txtMsg.setText("Faltan campos por llenar ");
+                    campos.setDuration(Toast.LENGTH_SHORT);
+                    campos.setView(layout);
+                    campos.show();
+
                 }else {
                     Toast.makeText(Publicar.this, "Datos insertados correctamente", Toast.LENGTH_SHORT).show();
                     Intent intentt = new Intent(Publicar.this, InicioNav.class);
@@ -329,7 +354,18 @@ public class Publicar extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(Publicar.this,  InicioNav.class);
-                Toast.makeText(Publicar.this, "Operacion cancelada correctamente ", Toast.LENGTH_LONG).show();
+                Toast cancel = new Toast(getApplicationContext());
+
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.toast_layout,
+                        (ViewGroup) findViewById(R.id.lytLayout));
+
+                TextView txtMsg = (TextView)layout.findViewById(R.id.toasttxt);
+                txtMsg.setText("Publicacion descartada");
+                cancel.setDuration(Toast.LENGTH_SHORT);
+                cancel.setView(layout);
+                cancel.show();
+
                 startActivity(intent);
 
             }

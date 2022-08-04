@@ -9,14 +9,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -46,9 +50,9 @@ public class InicioNav extends AppCompatActivity {
     FirebaseStorage storageRef;
     FirebaseFirestore db;
     RecyclerView recyclerView;
+    TextView txttoast;
 
-
-    ImageView  crearFrases;
+    ImageView  crearFrases , imgtoast;
 
     FloatingActionButton fab;
 
@@ -72,7 +76,7 @@ public class InicioNav extends AppCompatActivity {
         llenarLista();
         referenciar();
         referenciar2();
-        //referenciar3();
+        referenciar3();
     }
 
     private void llenarLista() {
@@ -106,22 +110,34 @@ public class InicioNav extends AppCompatActivity {
                     }
                 });
     }
-/*    private void referenciar3() {
+    private void referenciar3() {
+        txttoast = findViewById(R.id.toasttxt);
+        imgtoast = findViewById(R.id.imgtoast);
 
         refreshLayout2 = findViewById(R.id.refresh2);
         refreshLayout2.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @SuppressLint("UseCompatLoadingForDrawables")
             @Override
             public void onRefresh() {
 
                 number++;
-                Toast.makeText(InicioNav.this, "Actualizado", Toast.LENGTH_LONG).show();
+                Toast toast3 = new Toast(getApplicationContext());
 
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.toast_layout,
+                        (ViewGroup) findViewById(R.id.lytLayout));
+
+                TextView txtMsg = (TextView)layout.findViewById(R.id.toasttxt);
+                txtMsg.setText("Actualizado");
+                toast3.setDuration(Toast.LENGTH_SHORT);
+                toast3.setView(layout);
+                toast3.show();
                 refreshLayout2.setRefreshing(false);
 
             }
         });
 
-    }*/
+    }
     //navegation boton
     private void referenciar2() {
 
