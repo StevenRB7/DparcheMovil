@@ -28,8 +28,6 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
     Context context;
     List<Datos> originalItems;
 
-    FirebaseAuth mAuth;
-
 
     public AdaptadorDatos(Context context, List<Datos> listDatos) {
         this.listDatos = listDatos;
@@ -48,11 +46,7 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-
-
-        Datos datos=listDatos.get(position);
+        Datos datos = listDatos.get(position);
 
         Glide.with(context).load(datos.getUrl()).into(holder.foto);
         holder.observa.setText(datos.getDescripciones());
@@ -61,8 +55,8 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
         holder.cate.setText(datos.getCategorias());
 
         //gmail
-        holder.nomGmail.setText(currentUser.getDisplayName());
-        Glide.with(context).load(currentUser.getPhotoUrl()).into(holder.perfil);
+        holder.nomGmail.setText(datos.getNomCorreo());
+        Glide.with(context).load(datos.getFotoCorreo()).into(holder.perfil);
     }
 
     @Override
