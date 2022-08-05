@@ -75,17 +75,15 @@
         android:id="@+id/relative_mensaje"
         android:layout_alignParentBottom="true"
         android:padding="5dp"
-        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <EditText
-            android:hint="Escribi un mensaje"
-            android:layout_centerVertical="true"
             android:id="@+id/et_txt_mensaje"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </EditText>
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:hint="Escribi un mensaje"></EditText>
 
         <ImageButton
             android:id="@+id/btn_enviar"
