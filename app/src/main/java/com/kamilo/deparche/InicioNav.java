@@ -95,9 +95,9 @@ public class InicioNav extends AppCompatActivity {
                                 String cadenadesc = document.getString("descripciones");
                                 String cadenacate = document.getString("categorias");
                                 String cadenaides = document.getString("correoId");
-                                String cadenacorrename = document.getString("correoname");
-                                String cadenanamecorreo = document.getString("nombre");
-                                String cadenafoto = document.getString("foto correo");
+                                String cadenacorrename = document.getString("correoNom");
+                                String cadenanamecorreo = document.getString("nomCorreo");
+                                String cadenafoto = document.getString("fotoCorreo");
                                 String cadenaubi = document.getString("ubicacion");
 
 
