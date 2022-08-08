@@ -24,8 +24,8 @@ public class PaginasAdapter extends FragmentStateAdapter {
                 return new chatsFragment();
             case 2 :
                 return new solicitudesFragment();
-            case 3:
-                return new mis_solicitudesFragment();
+           /* case 3:
+                return new mis_solicitudesFragment();*/
             default:
                 return new UserFragment();
         }
@@ -33,6 +33,6 @@ public class PaginasAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 4;
+        return 3;
     }
 }

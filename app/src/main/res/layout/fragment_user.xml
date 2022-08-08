@@ -12,7 +12,7 @@
         android:id="@+id/cardviewUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/azul"
+        android:backgroundTint="@color/white"
         android:elevation="10dp"
         app:cardCornerRadius="10dp"
         android:layout_margin="10dp">
@@ -35,12 +35,12 @@
 
             <TextView
 
-                android:shadowColor="#000000"
+
                 android:shadowRadius="2"
                 android:shadowDx="1"
                 android:shadowDy="2"
                 android:id="@+id/txtuser"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:text="Nombre de usuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

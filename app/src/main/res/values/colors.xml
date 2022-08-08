@@ -20,5 +20,7 @@
 
     //color taptarget
     <color name="onda">#A5E5FF</color>
+    <color name="chat1">#5EF1DA</color>
+    <color name="chat2">#A5E5FF</color>
 
 </resources>

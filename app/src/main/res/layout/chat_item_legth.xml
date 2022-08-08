@@ -9,7 +9,7 @@
         android:id="@+id/txt_mensajee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/style_chat_left"
         android:padding="10dp"
         android:text="Hola hermoso que tal?"
         android:textColor="@color/white">

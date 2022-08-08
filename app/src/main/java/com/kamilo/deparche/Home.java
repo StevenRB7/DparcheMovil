@@ -56,7 +56,7 @@ public class Home extends AppCompatActivity {
 
                 switch (position) {
                     case 0: {
-                        tab.setText("Users");
+                        tab.setText("personas");
                         tab.setIcon(R.drawable.ic_users);
                         break;
                     }
@@ -97,11 +97,11 @@ public class Home extends AppCompatActivity {
 
                         break;
                     }
-                    case 3: {
+                    /*case 3: {
                         tab.setText("Mis solicitudes");
                         tab.setIcon(R.drawable.ic_mis_solicitudes);
                         break;
-                    }
+                    }*/
                 }
 
 
@@ -186,7 +186,6 @@ public class Home extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     ref_soli_count.setValue(0);
-                    Toast.makeText(Home.this, "Count a 0", Toast.LENGTH_SHORT).show();
                 }
             }
 

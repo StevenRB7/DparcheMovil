@@ -98,7 +98,7 @@
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/refresh2"
             android:layout_width="match_parent"
-            android:layout_height="703dp"
+            android:layout_height="657dp"
             android:layout_marginBottom="60dp">
 
             <androidx.recyclerview.widget.RecyclerView

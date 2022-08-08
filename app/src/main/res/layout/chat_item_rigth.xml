@@ -15,11 +15,11 @@
 
 
         <TextView
+            android:background="@drawable/style_chat_rigth"
             android:id="@+id/txt_mensajee"
             android:padding="10dp"
             android:text="muy bien y tu?"
-            android:textColor="@color/white"
-            android:background="@color/teal_200"
+            android:textColor="@color/azuloscuro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             >
