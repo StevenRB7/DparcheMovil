@@ -575,6 +575,13 @@ public class Publicar extends AppCompatActivity {
             TxtLatitud.setError(null);
         }
 
+        if (imageUri == null){
+            publicacion.setVisibility(View.VISIBLE);
+            esValido = false;
+        } else {
+            TxtLatitud.setError(null);
+        }
+
 
 
 //        if (TextUtils.isEmpty(txtubica.getText())){
