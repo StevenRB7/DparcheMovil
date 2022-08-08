@@ -103,10 +103,10 @@ public class Busqueda extends Activity implements SearchView.OnQueryTextListener
                                 String cadenaurl = document.getString("url");
                                 String cadenadesc = document.getString("descripciones");
                                 String cadenacate = document.getString("categorias");
-                                String cadenaides = document.getString("correoId");
-                                String cadenacorrename = document.getString("correo name");
-                                String cadenanamecorreo = document.getString("nombre");
-                                String cadenafoto = document.getString("foto correo");
+                                String cadenaides = document.getString("ides");
+                                String cadenacorrename = document.getString("correoNom");
+                                String cadenanamecorreo = document.getString("nomCorreo");
+                                String cadenafoto = document.getString("fotoCorreo");
                                 String cadenaubi = document.getString("ubicacion");
 
 
