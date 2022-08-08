@@ -81,7 +81,7 @@ public class Publicar extends AppCompatActivity {
     Spinner spinner;
 
     ImageView tomarfoto, subirfoto, obtenerubicacion, publicacion, imgUbicacion;
-    TextView lati, longi;
+    TextView lati, longi, TxtLatitud;
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -104,6 +104,7 @@ public class Publicar extends AppCompatActivity {
 
     String id, urlObtenida,url,descripciones,categorias,ides,correoname,namecorreo,fotocorreo,stringlati,ubicacion;
 
+    String ubicacionVal;
 
     private Uri imageUri = null;
 
@@ -124,6 +125,7 @@ public class Publicar extends AppCompatActivity {
 
         //editext
         Descripcion = findViewById(R.id.txtDescripcion);
+        TxtLatitud = findViewById(R.id.textlatitudpublicacion);
 
         referenciar();
         funciontomarfoto();
@@ -350,7 +352,6 @@ public class Publicar extends AppCompatActivity {
             public void onClick(View view) {
 
                 //notificacion
-                Notificacion();
 
                 indice = indice +1;
                 id = String.valueOf(indice);
@@ -388,6 +389,8 @@ public class Publicar extends AppCompatActivity {
                                 fotocorreo = user.getPhotoUrl().toString();
                                 ubicacion = lati.getText().toString();
 
+                                ubicacionVal = TxtLatitud.getText().toString();
+
                                 SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE-LLL-aaaa", Locale.forLanguageTag("es_ES"));
                                 Date date = new Date();
 
@@ -417,6 +420,8 @@ public class Publicar extends AppCompatActivity {
                                                 Toast.makeText(Publicar.this, "Datos f", Toast.LENGTH_LONG).show();
                                             }
                                         });
+
+                                Notificacion();
 
                                 Intent intent = new Intent(Publicar.this, InicioNav.class);
                                 intent.putExtra("URL", url);
@@ -555,7 +560,7 @@ public class Publicar extends AppCompatActivity {
      }*/
 
     public boolean validarfor(){
-        Boolean esValido = true;
+        boolean esValido = true;
 
         if (TextUtils.isEmpty(Descripcion.getText().toString())){
             Descripcion.setError("campo requerido");
@@ -563,18 +568,27 @@ public class Publicar extends AppCompatActivity {
         } else {
             Descripcion.setError(null);
         }
-        /*if (TextUtils.isEmpty(TxtLatitud.getText())){
+        if (TextUtils.isEmpty(TxtLatitud.getText())){
             TxtLatitud.setError("campo requerido");
             esValido = false;
         }else{
             TxtLatitud.setError(null);
-        }*/
-       /* if (imageUri == null){
-            publicacion.setVisibility(View.VISIBLE);
-            esValido = false;
-        }else{
-            publicacion.setError(null);
-        }*/
+        }
+
+
+
+//        if (TextUtils.isEmpty(txtubica.getText())){
+//            txtubica.setError("campo requerido");
+//            esValido = false;
+//        }else{
+//            txtubica.setError(null);
+//        }
+//        if (imageUri == null){
+//            imgUbicacion.setVisibility(View.VISIBLE);
+//            esValido = false;
+//        }else{
+//            txtubica.setError(null);
+//        }
 
         return esValido;
     }
