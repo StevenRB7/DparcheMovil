@@ -80,7 +80,7 @@ public class Publicar extends AppCompatActivity {
 
     Spinner spinner;
 
-    ImageView tomarfoto, subirfoto, obtenerubicacion, publicacion, imgUbicacion;
+    ImageView tomarfoto, subirfoto, publicacion, imgUbicacion;
     TextView lati, longi, TxtLatitud;
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -90,8 +90,6 @@ public class Publicar extends AppCompatActivity {
 
     EditText Descripcion;
 
-    LocationManager locationManager;
-    Location location;
     private static final int VALUE_UBI = 200;
 
     Date fechasub;
@@ -107,9 +105,6 @@ public class Publicar extends AppCompatActivity {
     String ubicacionVal;
 
     private Uri imageUri = null;
-
-    /*   @RequiresApi(api = Build.VERSION_CODES.M)*/
-
 
 
 
@@ -130,12 +125,10 @@ public class Publicar extends AppCompatActivity {
         referenciar();
         funciontomarfoto();
         funcionsubirfoto();
-        funcionUbicacion();
         funcionPublicar();
         funcionEliminarPublicacion();
         formulario();
 
-        /*verificarPermiso();*/
 
 
     }
@@ -173,10 +166,6 @@ public class Publicar extends AppCompatActivity {
                 }
 
                     if (imagenArchivo != null) {
-                     /*   Uri fotoUri = FileProvider.getUriForFile (Publicar.this, "com.kamilo.deparche", imagenArchivo);
-                        intent.putExtra(MediaStore.EXTRA_OUTPUT, fotoUri);
-                        startActivityForResult(intent, TOMAR_FOTO);
-                        imageUri = fotoUri;*/
                         Uri fotoUri = FileProvider.getUriForFile (Publicar.this, "com.kamilo.deparche", imagenArchivo);
                         intent.putExtra(MediaStore.EXTRA_OUTPUT, fotoUri);
                         startActivityForResult(intent, TOMAR_FOTO);
@@ -274,8 +263,6 @@ public class Publicar extends AppCompatActivity {
             String Text2 = "" + loc.getLongitude();
             lati.setText(Text);
             longi.setText(Text2);
-        /*    lagvet=TxtLongitud.getText().toString();
-            lonvet=TxtLatitud.getText().toString();*/
             this.mainActivity.setLocation(loc);
         }
 
@@ -305,44 +292,6 @@ public class Publicar extends AppCompatActivity {
                     break;
             }
         }
-    }
-
-    private void funcionUbicacion() {
-
-
-
-       /* locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if (ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-        location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-
-        obtenerubicacion = findViewById(R.id.imgUbicacion);
-        obtenerubicacion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                longi.setText(""+ String.valueOf(location.getLongitude()));
-.
-                if (location.getLatitude() != 0.0 && location.getLongitude() != 0.0) {
-                    try {
-                        Geocoder geocoder = new Geocoder(Publicar.this, Locale.getDefault());
-                        List<Address> list = geocoder.getFromLocation(
-                                location.getLatitude(), location.getLongitude(),1);
-                        if (!list.isEmpty()){
-                            Address DirCalle = list.get(0);
-                            lati.setText(DirCalle.getAddressLine(0));
-                            stringlati = lati.getText().toString();
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-            }
-        });*/
-
     }
 
     private void funcionPublicar() {
@@ -530,34 +479,6 @@ public class Publicar extends AppCompatActivity {
 
     }
 
-    /* @RequiresApi(api = Build.VERSION_CODES.M)
-     private void verificarPermiso() {
-
-         int PermisoUbi = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
-         if (PermisoUbi == PackageManager.PERMISSION_DENIED) {
-             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
-
-             } else {
-                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, VALUE_UBI);
-             }
-         }
-
-     }
-     @Override
-     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-         switch (requestCode) {
-             case VALUE_UBI: {
-                 if (grantResults.length > 0
-                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                     referenciar();
-                 } else {
-                     Toast.makeText(this, "PORFAVOR", Toast.LENGTH_SHORT).show();
-                 }
-                 return;
-             }
-         }
-     }*/
 
     public boolean validarfor(){
         boolean esValido = true;
@@ -581,21 +502,6 @@ public class Publicar extends AppCompatActivity {
         } else {
             TxtLatitud.setError(null);
         }
-
-
-
-//        if (TextUtils.isEmpty(txtubica.getText())){
-//            txtubica.setError("campo requerido");
-//            esValido = false;
-//        }else{
-//            txtubica.setError(null);
-//        }
-//        if (imageUri == null){
-//            imgUbicacion.setVisibility(View.VISIBLE);
-//            esValido = false;
-//        }else{
-//            txtubica.setError(null);
-//        }
 
         return esValido;
     }

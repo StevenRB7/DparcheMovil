@@ -67,14 +67,12 @@ public class Evento {
 
     @Override
     public String toString() {
-        return "Evento{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", imagen='" + imagen + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", fecha='" + fecha + '\'' +
-                ", direccion='" + direccion + '\'' +
-                '}';
+        return  id +
+                 nombre +
+                 imagen +
+                 descripcion +
+                 fecha +
+                 direccion ;
     }
 }
 

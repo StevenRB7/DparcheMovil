@@ -1,25 +1,41 @@
 package com.kamilo.deparche;
 
+import static android.content.ContentValues.TAG;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import Model.EstadosAnimo;
+
 public class Emociones extends AppCompatActivity implements View.OnClickListener{
 
 
     ConstraintLayout bg;
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+    String usuario, estado, idCorreo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +53,32 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
         animationView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                usuario = user.getDisplayName();
+                idCorreo = user.getUid();
+                estado = "Feliz";
+
+                EstadosAnimo datos = new EstadosAnimo(usuario,estado,idCorreo);
+
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                db.collection("Estados De Animo")
+                        .add(datos)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+
+                                Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+
+                                Log.w(TAG, "Error adding document", e);
+                                Toast.makeText(Emociones.this, "Datos f", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
                 Intent intent = new Intent(Emociones.this,Categoria.class);
                 startActivity(intent);
 
@@ -52,6 +94,32 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
         });    animationView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                usuario = user.getDisplayName();
+                idCorreo = user.getUid();
+                estado = "Enojado";
+
+                EstadosAnimo datos = new EstadosAnimo(usuario,estado,idCorreo);
+
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                db.collection("Estados De Animo")
+                        .add(datos)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+
+                                Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+
+                                Log.w(TAG, "Error adding document", e);
+                                Toast.makeText(Emociones.this, "Datos f", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
                 Intent intent = new Intent(Emociones.this,Categoria.class);
                 startActivity(intent);
                 animationView2.playAnimation();
@@ -64,8 +132,36 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
                 }
             }
         });    animationView3.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
+
+                usuario = user.getDisplayName();
+                idCorreo = user.getUid();
+                estado = "Trizte";
+
+                EstadosAnimo datos = new EstadosAnimo(usuario,estado,idCorreo);
+
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                db.collection("Estados De Animo")
+                        .add(datos)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+
+                                Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+
+                                Log.w(TAG, "Error adding document", e);
+                                Toast.makeText(Emociones.this, "Datos f", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
                 Intent intent = new Intent(Emociones.this,Categoria.class);
                 startActivity(intent);
                 animationView3.playAnimation();
