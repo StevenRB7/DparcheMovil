@@ -37,37 +37,36 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.333"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textPubli"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
+
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imagenUser"
             android:layout_width="150dp"
             android:layout_height="133dp"
-            android:layout_marginTop="20dp"
             android:src="@drawable/motel1"
-            app:layout_constraintBottom_toTopOf="@+id/rcperfil"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_nav"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.014"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/textNom"
-            android:layout_width="318dp"
-            android:layout_height="35dp"
+            android:layout_width="327dp"
+            android:layout_height="69dp"
             android:fontFamily="monospace"
             android:text=" "
             android:textAlignment="center"
             android:textSize="30dp"
             app:layout_constraintBottom_toTopOf="@+id/rcperfil"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagenUser"
-            app:layout_constraintVertical_bias="0.219" />
+            app:layout_constraintVertical_bias="0.096" />
 
         <TextView
             android:id="@+id/textPubli"
@@ -79,55 +78,10 @@
             android:textSize="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.445"
+            app:layout_constraintHorizontal_bias="0.465"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView5"
-            app:layout_constraintVertical_bias="0.062" />
-
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="51dp"
-            android:layout_height="19dp"
-            android:text="Correo: "
-            android:textAlignment="center"
-            android:textSize="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.044"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.223" />
-
-        <TextView
-            android:id="@+id/textid"
-            android:layout_width="51dp"
-            android:layout_height="19dp"
-            android:hint="id"
-            android:textAlignment="center"
-            android:textSize="10dp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.013"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.238" />
-
-        <TextView
-            android:id="@+id/textCorreo"
-            android:layout_width="wrap_content"
-            android:layout_height="27dp"
-            android:layout_marginTop="92dp"
-            android:text=""
-            android:textAlignment="center"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.155" />
+            app:layout_constraintVertical_bias="0.097" />
 
 
         <!--  <Button
@@ -146,6 +100,50 @@
           app:layout_constraintVertical_bias="0.846"
           tools:ignore="MissingConstraints">
       </Button>-->
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="51dp"
+            android:layout_height="19dp"
+            android:text="Correo: "
+            android:textAlignment="center"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.044"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <TextView
+            android:id="@+id/textid"
+            android:layout_width="51dp"
+            android:layout_height="19dp"
+            android:hint="id"
+            android:textAlignment="center"
+            android:textSize="10dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.044"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.226" />
+
+        <TextView
+            android:id="@+id/textCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:layout_marginTop="92dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.13" />
 
         <ImageButton
             android:id="@+id/cerrarsesion2"

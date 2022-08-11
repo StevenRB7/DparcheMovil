@@ -4,14 +4,22 @@ package com.kamilo.deparche;
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.BaseBundle;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -59,6 +67,9 @@ public class InicioNav extends AppCompatActivity {
     SwipeRefreshLayout refreshLayout2;
     int number = 0;
 
+    int REQUEST_CODE = 200;
+
+@RequiresApi(api = Build.VERSION_CODES.M)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +88,19 @@ public class InicioNav extends AppCompatActivity {
         referenciar();
         referenciar2();
         referenciar3();
+        permisos();
+    }
+
+    private void permisos() {
+       int PermisoCamara = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+        int PermisoAlmacenamiento = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if ( PermisoCamara == PackageManager.PERMISSION_GRANTED && PermisoAlmacenamiento == PackageManager.PERMISSION_GRANTED){
+
+
+        } else{
+            requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},REQUEST_CODE);
+        }
     }
 
     private void llenarLista() {
@@ -114,6 +138,7 @@ public class InicioNav extends AppCompatActivity {
                     }
                 });
     }
+
     private void referenciar3() {
         txttoast = findViewById(R.id.toasttxt);
         imgtoast = findViewById(R.id.imgtoast);
@@ -203,8 +228,8 @@ public class InicioNav extends AppCompatActivity {
         });
         new TapTargetSequence(this)
                 .targets(
-                        TapTarget.forView(fab, "Publicar", "En este apartado puedes hacer una publicacion de un eventos, acontecimientos, etc..")
-                                .outerCircleColor(R.color.onda)
+                        TapTarget.forView(fab, "Publicar", "En este apartado puedes hacer una publicación de lugares, eventos etc..")
+                                .outerCircleColor(R.color.azulmelo)
                                 .outerCircleAlpha(0.96f)
                                 .targetCircleColor(R.color.azuloscuro)
                                 .titleTextSize(25)
@@ -220,7 +245,25 @@ public class InicioNav extends AppCompatActivity {
                                 .transparentTarget(true)
                                 .targetRadius(30),
 
-                        TapTarget.forView(frases, "Frases", "Aqui puedes encontrar frases motiivacionales aleatorias")
+                        TapTarget.forView(chat, "Chats", "En este apartado puedes hacer amigos eh interactuar con cada uno de ellos")
+                                .outerCircleColor(R.color.azuloscuro)
+                                .outerCircleAlpha(0.96f)
+                                .targetCircleColor(R.color.onda)
+                                .titleTextSize(25)
+                                .titleTextColor(R.color.white)
+                                .descriptionTextSize(20)
+                                .descriptionTextColor(R.color.blancomelo)
+                                .textColor(R.color.blancomelo)
+                                .textTypeface(Typeface.SANS_SERIF)
+                                .dimColor(android.R.color.holo_blue_bright)
+                                .drawShadow(true)
+                                .cancelable(true)
+                                .tintTarget(true)
+                                .transparentTarget(true)
+                                .targetRadius(30),
+
+
+                        TapTarget.forView(frases, "Frases", "Aqui puedes encontrar frases motiivacionales aleatorias que mejoraran aun mas tu día")
                                 .outerCircleColor(R.color.onda)
                                 .outerCircleAlpha(0.96f)
                                 .targetCircleColor(R.color.azuloscuro)
@@ -235,9 +278,12 @@ public class InicioNav extends AppCompatActivity {
                                 .cancelable(true)
                                 .tintTarget(true)
                                 .transparentTarget(true)
-                                .targetRadius(50)).listener(new TapTargetSequence.Listener() {
+                                .targetRadius(50))
+                                .listener(new TapTargetSequence.Listener() {
+
                     @Override
                     public void onSequenceFinish() {
+
                     }
 
                     @Override
@@ -247,7 +293,6 @@ public class InicioNav extends AppCompatActivity {
 
                     @Override
                     public void onSequenceCanceled(TapTarget lastTarget) {
-
                     }
                 }).start();
 
@@ -261,6 +306,7 @@ public class InicioNav extends AppCompatActivity {
 
 
         frases.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(InicioNav.this, Popud.class);
