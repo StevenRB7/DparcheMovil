@@ -117,7 +117,7 @@
 
     <ScrollView
         android:layout_width="398dp"
-        android:layout_height="280dp"
+        android:layout_height="320dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,9 +126,8 @@
 
         <ImageView
             android:id="@+id/imgPubli"
-            android:layout_width="397dp"
-            android:layout_height="260dp"
-            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -195,18 +194,17 @@
 
     <EditText
         android:id="@+id/txtDescripcion"
-        android:layout_width="379dp"
-        android:layout_height="48dp"
+        android:layout_width="315dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:ems="10"
+        android:gravity="center"
         android:hint="@string/observaciones"
-        android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textlatitudpublicacion"
-        app:layout_constraintVertical_bias="0.133" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.827" />
 
     <Button
         android:id="@+id/Publicar"

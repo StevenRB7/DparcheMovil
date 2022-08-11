@@ -40,7 +40,10 @@
         <activity
             android:name=".Perfil"
             android:screenOrientation="portrait" />
-        <activity android:name=".Eventos" />
+        <activity android:name=".Eventos"
+            android:screenOrientation="portrait" />
+
+        />
         <activity
             android:name=".Busqueda"
             android:screenOrientation="portrait" />

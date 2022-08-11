@@ -207,7 +207,7 @@ public class Publicar extends AppCompatActivity {
         mlocManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, (LocationListener) Local);
         mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) Local);
 
-        lati.setText("Obteniendo Ubicacion");
+        lati.setText("Obteniendo Ubicación...");
         longi.setText("");
     }
 
