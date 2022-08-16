@@ -39,6 +39,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -63,6 +66,8 @@ public class InicioNav extends AppCompatActivity {
     ImageView  crearFrases , imgtoast;
 
     FloatingActionButton fab;
+
+    String userAdmin = "stevenarb98@gmail.com" + "fotocopiasa100@gmail.com";
 
     SwipeRefreshLayout refreshLayout2;
     int number = 0;
@@ -89,7 +94,10 @@ public class InicioNav extends AppCompatActivity {
         referenciar2();
         referenciar3();
         permisos();
+        crearfrases();
     }
+
+
 
     private void permisos() {
        int PermisoCamara = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
@@ -207,6 +215,25 @@ public class InicioNav extends AppCompatActivity {
             }
         });
     }
+
+    private void crearfrases() {
+
+        LottieAnimationView chat = findViewById(R.id.crearFrases);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        /*FirebaseFirestore data = FirebaseFirestore.getInstance();
+        data.collection("publicacion");*/
+
+        if (user.getEmail().equals(userAdmin)) {
+
+            chat.setVisibility(View.VISIBLE);
+
+        }else {
+            chat.setVisibility(View.GONE);
+        }
+    }
+
 //taptarget
     private void referenciar() {
         LottieAnimationView frases = findViewById(R.id.verFrases);

@@ -15,7 +15,7 @@
         android:text="@string/tituloPop1"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:fontFamily="cursive"
+        android:fontFamily="casual"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

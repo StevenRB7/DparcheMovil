@@ -55,6 +55,7 @@ public class Perfil extends Activity {
     RecyclerView recyclerView;
 
 
+
     private GoogleSignInClient mGoogleSignInClient;
     private GoogleSignInOptions gso;
 
@@ -64,6 +65,9 @@ public class Perfil extends Activity {
     private FirebaseAuth mAuth;
     private TextView textid, textnombre, textemail;
     private ImageView imagenUser;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -80,7 +84,7 @@ public class Perfil extends Activity {
 
 
         referenciar2();
-        llenarLista();
+        condicional();
 
         imagenUser = findViewById(R.id.imagenUser);
         textid = findViewById(R.id.textid);
@@ -168,6 +172,21 @@ public class Perfil extends Activity {
         });
     }
 
+    private void condicional() {
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        String correo = user.getEmail();
+
+        if (user.getEmail().equals(correo)){
+            llenarLista();
+        }else {
+            Toast.makeText(this, "Crea una publicacion para que puedas verla", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
     private void llenarLista() {
 
         db.collection("publicacion").orderBy("tiempo", Query.Direction.DESCENDING).get()
@@ -203,7 +222,51 @@ public class Perfil extends Activity {
                     }
                 });
 
+        /*FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        String correo = user.getEmail();
+
+        if (user.getEmail().equals(correo)){
+
+            db.collection("publicacion").orderBy("tiempo", Query.Direction.DESCENDING).get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()){
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                    Log.d(TAG, document.getId() + " => " + document.getData());
+
+                                    Date tiempo = document.getDate("tiempo");
+                                    String cadenaurl = document.getString("url");
+                                    String cadenadesc = document.getString("descripciones");
+                                    String cadenacate = document.getString("categorias");
+                                    String cadenaides = document.getString("ides");
+                                    String cadenacorrename = document.getString("correoNom");
+                                    String cadenanamecorreo = document.getString("nomCorreo");
+                                    String cadenafoto = document.getString("fotoCorreo");
+                                    String cadenaubi = document.getString("ubicacion");
+
+
+                                    Datos datos = new Datos(tiempo,cadenaurl,cadenadesc,cadenacate,cadenaides,cadenacorrename,cadenanamecorreo,cadenafoto,cadenaubi);
+                                    listDatos.add(datos);
+
+                                    adaptadorDatos = new AdaptadorDatos(Perfil.this,listDatos);
+                                    recyclerView.setAdapter(adaptadorDatos);
+
+                                }
+                            }else {
+                                Log.w(TAG,"Error getting documents.", task.getException());
+                            }
+                        }
+                    });
+        } else {
+            Toast.makeText(this, "Crea una publicacion para que puedas verla", Toast.LENGTH_SHORT).show();
+        }*/
+
     }
+
+
 
     private void referenciar2() {
 

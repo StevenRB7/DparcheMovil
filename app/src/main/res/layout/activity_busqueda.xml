@@ -26,7 +26,11 @@
         android:queryHint="Buscar categoria"
         app:layout_constraintTop_toTopOf="parent"
         android:iconifiedByDefault="false"
-        />
+        >
+
+
+
+    </SearchView>
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/refresh"

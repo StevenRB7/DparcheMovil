@@ -67,6 +67,7 @@
         app:lottie_rawRes="@raw/frases" />
 
     <com.airbnb.lottie.LottieAnimationView
+        android:visibility="gone"
         android:id="@+id/crearFrases"
         android:layout_width="61dp"
         android:layout_height="56dp"

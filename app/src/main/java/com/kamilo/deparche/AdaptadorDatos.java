@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 import Model.Datos;
@@ -72,14 +73,14 @@ public class AdaptadorDatos  extends RecyclerView.Adapter<AdaptadorDatos.ViewHol
         else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 List<Datos> collect = originalItems.stream()
-                        .filter(i -> i.getCategorias().toLowerCase().contains(strSearch))
+                        .filter(i -> i.getCategorias().toLowerCase().contains(strSearch.toLowerCase()))
                         .collect(Collectors.toList());
                 listDatos.clear();
                 listDatos.addAll(collect);
             }
             else {
                 for (Datos i : originalItems) {
-                    if (i.getCategorias().toLowerCase().contains(strSearch)){
+                    if (i.getCategorias().toLowerCase().contains(strSearch.toLowerCase())){
                         listDatos.add(i);
                     }
                 }
