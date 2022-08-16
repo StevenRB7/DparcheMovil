@@ -184,9 +184,9 @@ public class InicioNav extends AppCompatActivity {
                                 ,Busqueda.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.frases:
+                    case R.id.chat:
                         startActivity(new Intent(getApplicationContext()
-                                ,CrearFrase.class));
+                                ,Home.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.eventos:
@@ -212,7 +212,7 @@ public class InicioNav extends AppCompatActivity {
         LottieAnimationView frases = findViewById(R.id.verFrases);
         crearFrases = findViewById(R.id.verFrases);
 
-        LottieAnimationView chat = findViewById(R.id.verChat);
+        LottieAnimationView chat = findViewById(R.id.crearFrases);
 
 
         fab = findViewById(R.id.agregar);
@@ -332,7 +332,7 @@ public class InicioNav extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(InicioNav.this, Home.class);
+                Intent intent = new Intent(InicioNav.this, CrearFrase.class);
                 startActivity(intent);
 
 

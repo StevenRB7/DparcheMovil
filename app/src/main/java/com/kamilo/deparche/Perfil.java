@@ -219,7 +219,7 @@ public class Perfil extends Activity {
                                 ,Busqueda.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.frases:
+                    case R.id.chat:
                         startActivity(new Intent(getApplicationContext()
                                 ,CrearFrase.class));
                         overridePendingTransition(0,0);

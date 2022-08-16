@@ -43,7 +43,7 @@ public class CrearFrase extends AppCompatActivity {
     private void referenciar2() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.btn_nav);
 
-        bottomNavigationView.setSelectedItemId(R.id.frases);
+        bottomNavigationView.setSelectedItemId(R.id.chat);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -54,7 +54,7 @@ public class CrearFrase extends AppCompatActivity {
                                 ,Busqueda.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.frases:
+                    case R.id.chat:
                         return true;
                     case R.id.eventos:
                         startActivity(new Intent(getApplicationContext()

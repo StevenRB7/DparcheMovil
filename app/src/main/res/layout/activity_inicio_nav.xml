@@ -67,7 +67,7 @@
         app:lottie_rawRes="@raw/frases" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/verChat"
+        android:id="@+id/crearFrases"
         android:layout_width="61dp"
         android:layout_height="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,7 +76,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:lottie_rawRes="@raw/chat"
+        app:lottie_rawRes="@raw/frases2"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         >

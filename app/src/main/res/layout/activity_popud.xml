@@ -25,35 +25,18 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/paloma"
-        android:layout_width="137dp"
-        android:layout_height="124dp"
+        android:layout_width="177dp"
+        android:layout_height="149dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123"
+        app:layout_constraintVertical_bias="0.899"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/paloma">
-    </com.airbnb.lottie.LottieAnimationView>
+        app:lottie_rawRes="@raw/paloma"/>
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/koala"
-        android:layout_width="204dp"
-        android:layout_height="240dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/koala">
-    </com.airbnb.lottie.LottieAnimationView>
-
-    <com.airbnb.lottie.LottieAnimationView
+    <!--    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/palmera"
         android:layout_width="204dp"
         android:layout_height="240dp"
@@ -65,8 +48,9 @@
         app:layout_constraintVertical_bias="0.904"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/palmera"/>
+        app:lottie_rawRes="@raw/palmera"/>-->
 
+<!--
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="147dp"
@@ -77,6 +61,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0.544"
         app:srcCompat="@drawable/isa" />
+-->
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/koala"
+        android:layout_width="216dp"
+        android:layout_height="251dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.994"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.033"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/koala"/>
 
     <ScrollView
         android:layout_width="412dp"
