@@ -6,6 +6,7 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -22,6 +24,7 @@ import android.os.BaseBundle;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -63,7 +66,7 @@ public class InicioNav extends AppCompatActivity {
     RecyclerView recyclerView;
     TextView txttoast;
 
-    ImageView  crearFrases , imgtoast;
+    ImageView crearFrases, imgtoast;
 
     FloatingActionButton fab;
 
@@ -74,7 +77,7 @@ public class InicioNav extends AppCompatActivity {
 
     int REQUEST_CODE = 200;
 
-@RequiresApi(api = Build.VERSION_CODES.M)
+    @RequiresApi(api = Build.VERSION_CODES.M)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,16 +101,15 @@ public class InicioNav extends AppCompatActivity {
     }
 
 
-
     private void permisos() {
-       int PermisoCamara = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+        int PermisoCamara = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
         int PermisoAlmacenamiento = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
-        if ( PermisoCamara == PackageManager.PERMISSION_GRANTED && PermisoAlmacenamiento == PackageManager.PERMISSION_GRANTED){
+        if (PermisoCamara == PackageManager.PERMISSION_GRANTED && PermisoAlmacenamiento == PackageManager.PERMISSION_GRANTED) {
 
 
-        } else{
-            requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},REQUEST_CODE);
+        } else {
+            requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
         }
     }
 
@@ -117,7 +119,7 @@ public class InicioNav extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
                                 Log.d(TAG, document.getId() + " => " + document.getData());
@@ -133,15 +135,15 @@ public class InicioNav extends AppCompatActivity {
                                 String cadenaubi = document.getString("ubicacion");
 
 
-                                Datos datos = new Datos(tiempo,cadenaurl,cadenadesc,cadenacate,cadenaides,cadenacorrename,cadenanamecorreo,cadenafoto,cadenaubi);
+                                Datos datos = new Datos(tiempo, cadenaurl, cadenadesc, cadenacate, cadenaides, cadenacorrename, cadenanamecorreo, cadenafoto, cadenaubi);
                                 listDatos.add(datos);
 
-                                adaptadorDatos = new AdaptadorDatos(InicioNav.this,listDatos);
+                                adaptadorDatos = new AdaptadorDatos(InicioNav.this, listDatos);
                                 recyclerView.setAdapter(adaptadorDatos);
 
                             }
-                        }else {
-                            Log.w(TAG,"Error getting documents.", task.getException());
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
                         }
                     }
                 });
@@ -164,7 +166,7 @@ public class InicioNav extends AppCompatActivity {
                 View layout = inflater.inflate(R.layout.toast_layout,
                         (ViewGroup) findViewById(R.id.lytLayout));
 
-                TextView txtMsg = (TextView)layout.findViewById(R.id.toasttxt);
+                TextView txtMsg = (TextView) layout.findViewById(R.id.toasttxt);
                 txtMsg.setText("Actualizado");
                 toast3.setDuration(Toast.LENGTH_SHORT);
                 toast3.setView(layout);
@@ -176,6 +178,7 @@ public class InicioNav extends AppCompatActivity {
         });
 
     }
+
     //navegation boton
     private void referenciar2() {
 
@@ -186,26 +189,26 @@ public class InicioNav extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.busqueda:
                         startActivity(new Intent(getApplicationContext()
-                                ,Busqueda.class));
-                        overridePendingTransition(0,0);
+                                , Busqueda.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.chat:
                         startActivity(new Intent(getApplicationContext()
-                                ,Home.class));
-                        overridePendingTransition(0,0);
+                                , Home.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.eventos:
                         startActivity(new Intent(getApplicationContext()
-                                ,Eventos.class));
-                        overridePendingTransition(0,0);
+                                , Eventos.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.perfil:
                         startActivity(new Intent(getApplicationContext()
-                                ,Perfil.class));
-                        overridePendingTransition(0,0);
+                                , Perfil.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:
                         return true;
@@ -229,12 +232,12 @@ public class InicioNav extends AppCompatActivity {
 
             chat.setVisibility(View.VISIBLE);
 
-        }else {
+        } else {
             chat.setVisibility(View.GONE);
         }
     }
 
-//taptarget
+    //taptarget
     private void referenciar() {
         LottieAnimationView frases = findViewById(R.id.verFrases);
         crearFrases = findViewById(R.id.verFrases);
@@ -306,7 +309,7 @@ public class InicioNav extends AppCompatActivity {
                                 .tintTarget(true)
                                 .transparentTarget(true)
                                 .targetRadius(50))
-                                .listener(new TapTargetSequence.Listener() {
+                .listener(new TapTargetSequence.Listener() {
 
                     @Override
                     public void onSequenceFinish() {
@@ -367,9 +370,38 @@ public class InicioNav extends AppCompatActivity {
         });
 
 
-
-
     }
 
+   /* @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
 
+        if (keyCode == event.KEYCODE_BACK) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Deseas Abandonar D´PARCHE?")
+                    .setPositiveButton("si", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.addCategory(Intent.CATEGORY_HOME);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int i) {
+                            dialog.dismiss();
+                        }
+                    });
+            builder.show();
+        }
+        return super.onKeyDown(keyCode, event);
+    }*/
+
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 }
+

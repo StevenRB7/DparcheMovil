@@ -81,6 +81,7 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
 
                 Intent intent = new Intent(Emociones.this,Categoria.class);
                 startActivity(intent);
+                finish();
 
                 animationView1.playAnimation();
                 //VUELVE INVISIBLE ALA IMAGEN Y MUESTRA EL TOAST Y CAMBIA AL SIGUIENTE VISTA
@@ -90,6 +91,7 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
                     tine.execute();
                   //  Toast.makeText(Emociones.this, "cada 15 dias ", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });    animationView2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +124,8 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
 
                 Intent intent = new Intent(Emociones.this,Categoria.class);
                 startActivity(intent);
+                finish();
+
                 animationView2.playAnimation();
                 //VUELVE INVISIBLE ALA IMAGEN Y MUESTRA EL TOAST Y CAMBIA AL SIGUIENTE VISTA
                 if (view == animationView2) {
@@ -164,6 +168,8 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
 
                 Intent intent = new Intent(Emociones.this,Categoria.class);
                 startActivity(intent);
+                finish();
+
                 animationView3.playAnimation();
                 //VUELVE INVISIBLE ALA IMAGEN Y MUESTRA EL TOAST Y CAMBIA AL SIGUIENTE VISTA
                 if (view == animationView3) {

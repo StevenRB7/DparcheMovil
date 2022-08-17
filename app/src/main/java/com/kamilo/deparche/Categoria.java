@@ -82,6 +82,7 @@ public class Categoria extends AppCompatActivity {
 
                 Intent intent = new Intent(Categoria.this,InicioNav.class);
                 startActivity(intent);
+                finish();
                 animationView1.playAnimation();
             }
         });    animationView2.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +116,7 @@ public class Categoria extends AppCompatActivity {
 
                 Intent intent = new Intent(Categoria.this,InicioNav.class);
                 startActivity(intent);
+                finish();
                 animationView2.playAnimation();
             }
         });    animationView3.setOnClickListener(new View.OnClickListener() {
@@ -148,6 +150,7 @@ public class Categoria extends AppCompatActivity {
 
                 Intent intent = new Intent(Categoria.this,InicioNav.class);
                 startActivity(intent);
+                finish();
                 animationView3.playAnimation();
             }
         });
@@ -182,6 +185,7 @@ public class Categoria extends AppCompatActivity {
 
                 Intent intent = new Intent(Categoria.this,InicioNav.class);
                 startActivity(intent);
+                finish();
                 animationView4.playAnimation();
             }
         });
@@ -217,6 +221,7 @@ public class Categoria extends AppCompatActivity {
 
                 Intent intent = new Intent(Categoria.this,InicioNav.class);
                 startActivity(intent);
+                finish();
                 animationView5.playAnimation();
             }
         });
@@ -251,6 +256,7 @@ public class Categoria extends AppCompatActivity {
 
                 Intent intent = new Intent(Categoria.this,InicioNav.class);
                 startActivity(intent);
+                finish();
                 animationView6.playAnimation();
             }
         });
