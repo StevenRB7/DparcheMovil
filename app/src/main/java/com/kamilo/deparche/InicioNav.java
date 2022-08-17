@@ -359,7 +359,7 @@ public class InicioNav extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(InicioNav.this, CrearFrase.class);
+                Intent intent = new Intent(InicioNav.this, Home.class);
                 startActivity(intent);
 
 

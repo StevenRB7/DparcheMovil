@@ -284,7 +284,7 @@ public class Perfil extends Activity {
                         return true;
                     case R.id.chat:
                         startActivity(new Intent(getApplicationContext()
-                                ,CrearFrase.class));
+                                ,Home.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.eventos:

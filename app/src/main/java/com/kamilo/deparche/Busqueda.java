@@ -144,7 +144,7 @@ public class Busqueda extends Activity implements SearchView.OnQueryTextListener
 
                     case R.id.chat:
                         startActivity(new Intent(getApplicationContext()
-                                ,CrearFrase.class));
+                                ,Home.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.eventos:
