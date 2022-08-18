@@ -70,12 +70,15 @@ public class InicioNav extends AppCompatActivity {
 
     FloatingActionButton fab;
 
-    String userAdmin = "stevenarb98@gmail.com" + "fotocopiasa100@gmail.com";
+    /*String userAdmin = "stevenarb98@gmail.com" + "fotocopiasa100@gmail.com";*/
 
     SwipeRefreshLayout refreshLayout2;
     int number = 0;
 
     int REQUEST_CODE = 200;
+
+    FirebaseUser userAdmin = FirebaseAuth.getInstance().getCurrentUser();
+    String admin = "stevenarb98@gmail.com";
 
     @RequiresApi(api = Build.VERSION_CODES.M)
 
@@ -91,6 +94,8 @@ public class InicioNav extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         listDatos = new ArrayList<Datos>();
+
+        userAdmin.getEmail().equals(admin);
 
         llenarLista();
         referenciar();
@@ -219,30 +224,26 @@ public class InicioNav extends AppCompatActivity {
         });
     }
 
-    private void crearfrases() {
 
-        LottieAnimationView chat = findViewById(R.id.crearFrases);
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        /*FirebaseFirestore data = FirebaseFirestore.getInstance();
-        data.collection("publicacion");*/
-
-        if (user.getEmail().equals(userAdmin)) {
-
-            chat.setVisibility(View.VISIBLE);
-
-        } else {
-            chat.setVisibility(View.GONE);
-        }
-    }
 
     //taptarget
     private void referenciar() {
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         LottieAnimationView frases = findViewById(R.id.verFrases);
+
         crearFrases = findViewById(R.id.verFrases);
 
-        LottieAnimationView chat = findViewById(R.id.crearFrases);
+        LottieAnimationView crearFra = findViewById(R.id.crearFrases);
+
+        if (user.getEmail().equals(admin)) {
+
+            crearFra.setVisibility(View.VISIBLE);
+
+        } else {
+            crearFra.setVisibility(View.GONE);
+        }
 
 
         fab = findViewById(R.id.agregar);
@@ -275,7 +276,7 @@ public class InicioNav extends AppCompatActivity {
                                 .transparentTarget(true)
                                 .targetRadius(30),
 
-                        TapTarget.forView(chat, "Chats", "En este apartado puedes hacer amigos eh interactuar con cada uno de ellos")
+                        TapTarget.forView(crearFra, "Chats", "En este apartado puedes hacer amigos eh interactuar con cada uno de ellos")
                                 .outerCircleColor(R.color.azuloscuro)
                                 .outerCircleAlpha(0.96f)
                                 .targetCircleColor(R.color.onda)
@@ -358,11 +359,11 @@ public class InicioNav extends AppCompatActivity {
             }
         });
 
-        chat.setOnClickListener(new View.OnClickListener() {
+        crearFra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(InicioNav.this, Home.class);
+                Intent intent = new Intent(InicioNav.this, CrearFrase.class);
                 startActivity(intent);
 
 
@@ -372,6 +373,17 @@ public class InicioNav extends AppCompatActivity {
 
     }
 
+    private void crearfrases() {
+
+        LottieAnimationView crearFra = findViewById(R.id.crearFrases);
+
+
+
+        /*FirebaseFirestore data = FirebaseFirestore.getInstance();
+        data.collection("publicacion");*/
+
+
+    }
    /* @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
