@@ -102,7 +102,6 @@ public class InicioNav extends AppCompatActivity {
         referenciar2();
         referenciar3();
         permisos();
-        crearfrases();
     }
 
 
@@ -276,7 +275,7 @@ public class InicioNav extends AppCompatActivity {
                                 .transparentTarget(true)
                                 .targetRadius(30),
 
-                        TapTarget.forView(crearFra, "Chats", "En este apartado puedes hacer amigos eh interactuar con cada uno de ellos")
+                        /*TapTarget.forView(crearFra, "Chats", "En este apartado puedes hacer amigos eh interactuar con cada uno de ellos")
                                 .outerCircleColor(R.color.azuloscuro)
                                 .outerCircleAlpha(0.96f)
                                 .targetCircleColor(R.color.onda)
@@ -291,8 +290,7 @@ public class InicioNav extends AppCompatActivity {
                                 .cancelable(true)
                                 .tintTarget(true)
                                 .transparentTarget(true)
-                                .targetRadius(30),
-
+                                .targetRadius(30),*/
 
                         TapTarget.forView(frases, "Frases", "Aqui puedes encontrar frases motiivacionales aleatorias que mejoraran aun mas tu día")
                                 .outerCircleColor(R.color.onda)
@@ -325,7 +323,9 @@ public class InicioNav extends AppCompatActivity {
                     @Override
                     public void onSequenceCanceled(TapTarget lastTarget) {
                     }
+
                 }).start();
+
 
         crearFrases.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -372,43 +372,6 @@ public class InicioNav extends AppCompatActivity {
 
 
     }
-
-    private void crearfrases() {
-
-        LottieAnimationView crearFra = findViewById(R.id.crearFrases);
-
-
-
-        /*FirebaseFirestore data = FirebaseFirestore.getInstance();
-        data.collection("publicacion");*/
-
-
-    }
-   /* @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        if (keyCode == event.KEYCODE_BACK) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Deseas Abandonar D´PARCHE?")
-                    .setPositiveButton("si", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent intent = new Intent(Intent.ACTION_MAIN);
-                            intent.addCategory(Intent.CATEGORY_HOME);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intent);
-                        }
-                    })
-                    .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int i) {
-                            dialog.dismiss();
-                        }
-                    });
-            builder.show();
-        }
-        return super.onKeyDown(keyCode, event);
-    }*/
 
 
     @Override
