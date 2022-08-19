@@ -9,8 +9,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaEventos"
-        android:layout_width="404dp"
-        android:layout_height="761dp"
+        android:layout_width="410dp"
+        android:layout_height="724dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="3dp" />

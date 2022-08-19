@@ -62,11 +62,11 @@ public class AdaptadorEventos  extends RecyclerView.Adapter<AdaptadorEventos.Vie
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            nombre = itemView.findViewById(R.id.name);
-            imagen = itemView.findViewById(R.id.image);
-            descripcion = itemView.findViewById(R.id.description);
-            fecha = itemView.findViewById(R.id.date);
-            direccion = itemView.findViewById(R.id.direcci);
+            nombre = itemView.findViewById(R.id.datostitulo);
+            imagen = itemView.findViewById(R.id.datosimgPublicacion);
+            descripcion = itemView.findViewById(R.id.datosdescripcion);
+            fecha = itemView.findViewById(R.id.datosfecha);
+            direccion = itemView.findViewById(R.id.datosubicacion);
         }
     }
 }
