@@ -15,6 +15,7 @@ import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
@@ -127,10 +128,47 @@ public class Home extends AppCompatActivity {
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         userunico();
-
+        referenciar2();
 
     }
+    private void referenciar2() {
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.btn_nav);
+
+        bottomNavigationView.setSelectedItemId(R.id.chat);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.busqueda:
+                        startActivity(new Intent(getApplicationContext()
+                                , Busqueda.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext()
+                                , InicioNav.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.eventos:
+                        startActivity(new Intent(getApplicationContext()
+                                , Eventos.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.perfil:
+                        startActivity(new Intent(getApplicationContext()
+                                , Perfil.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.chat:
+                        return true;
+                }
+
+                return false;
+            }
+        });
+    }
     private void estadoUser (String estado){
 
         ref_estado.addListenerForSingleValueEvent(new ValueEventListener() {
