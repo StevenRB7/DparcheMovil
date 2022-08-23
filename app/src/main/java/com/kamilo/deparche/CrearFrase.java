@@ -37,46 +37,10 @@ public class CrearFrase extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_frase);
         referenciar();
-        referenciar2();
+        /*referenciar2();*/
     }
 
-    private void referenciar2() {
-        BottomNavigationView bottomNavigationView = findViewById(R.id.btn_nav);
 
-        bottomNavigationView.setSelectedItemId(R.id.chat);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.busqueda:
-                        startActivity(new Intent(getApplicationContext()
-                                ,Busqueda.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.chat:
-                        return true;
-                    case R.id.eventos:
-                        startActivity(new Intent(getApplicationContext()
-                                ,Eventos.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.perfil:
-                        startActivity(new Intent(getApplicationContext()
-                                ,Perfil.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.home:
-                        startActivity(new Intent(getApplicationContext()
-                                ,InicioNav.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-
-                return false;
-            }
-        });
-    }
 
     private void referenciar() {
 

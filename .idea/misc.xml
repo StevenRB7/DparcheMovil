@@ -90,6 +90,7 @@
         <entry key="..\:/Users/ADMIN/Desktop/Nuevo/DparcheMovil/app/src/main/res/layout/item_eventos.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/movil/DparcheMovil/app/src/main/res/layout/activity_busqueda.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/movil/DparcheMovil/app/src/main/res/layout/activity_categoria.xml" value="0.3625" />
+        <entry key="..\:/Users/ADMIN/Desktop/movil/DparcheMovil/app/src/main/res/layout/activity_crear_frase.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/movil/DparcheMovil/app/src/main/res/layout/activity_emociones.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/movil/DparcheMovil/app/src/main/res/layout/activity_eventos.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/Desktop/movil/DparcheMovil/app/src/main/res/layout/activity_home.xml" value="0.3625" />
@@ -171,7 +172,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

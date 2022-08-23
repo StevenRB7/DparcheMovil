@@ -12,7 +12,6 @@
         android:layout_width="399dp"
         android:layout_height="75dp"
         android:src="@drawable/logod"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -133,7 +132,7 @@
         />
 
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+   <!-- <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btn_nav"
         android:layout_width="390dp"
         android:layout_height="54dp"
@@ -148,7 +147,7 @@
         app:menu="@menu/bottom_nav_menu"
         >
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </com.google.android.material.bottomnavigation.BottomNavigationView>-->
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/palmera"
