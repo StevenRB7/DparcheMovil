@@ -342,20 +342,6 @@ public class InicioNav extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(InicioNav.this, Popud.class);
                 startActivity(intent);
-                class Crear implements View.OnClickListener {
-
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(InicioNav.this, CrearFrase.class);
-                        startActivity(intent);
-                    }
-                }
-                Snackbar mySnackbar = Snackbar.make(findViewById(R.id.verFrases),
-                        R.string.snask, Snackbar.LENGTH_SHORT);
-                mySnackbar.setAction(R.string.Crear, new Crear());
-
-                mySnackbar.show();
-
             }
         });
 

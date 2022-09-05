@@ -6,6 +6,7 @@ public class EstadosAnimo {
     String Estado;
     String IdCorreo;
 
+
     public EstadosAnimo() {
     }
 
@@ -13,6 +14,7 @@ public class EstadosAnimo {
         Usuario = usuario;
         Estado = estado;
         IdCorreo = idCorreo;
+
     }
 
     public String getUsuario() {
@@ -38,6 +40,8 @@ public class EstadosAnimo {
     public void setIdCorreo(String idCorreo) {
         IdCorreo = idCorreo;
     }
+
+
 
     @Override
     public String toString() {
