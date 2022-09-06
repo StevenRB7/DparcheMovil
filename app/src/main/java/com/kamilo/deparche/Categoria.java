@@ -27,6 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import Model.EstadosAnimo;
 import Model.Intereses;
+import Model.Registro;
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
 
 public class Categoria extends AppCompatActivity {
@@ -36,6 +37,9 @@ public class Categoria extends AppCompatActivity {
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     String usuario, interes, idCorreo;
+
+    Integer ciclismo = 0,
+            ambiente = 0;
 
 
     @Override
@@ -69,6 +73,29 @@ public class Categoria extends AppCompatActivity {
                             public void onSuccess(DocumentReference documentReference) {
 
                                 Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+
+                                Log.w(TAG, "Error adding document", e);
+                                Toast.makeText(Categoria.this, "Datos f", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                Registro regi = new Registro(ciclismo,ambiente);
+
+                FirebaseFirestore data = FirebaseFirestore.getInstance();
+                data.collection("Registro")
+                        .add(regi)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+
+                                Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                                ciclismo = ciclismo +1 ;
+                                ambiente = ambiente + 0;
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
