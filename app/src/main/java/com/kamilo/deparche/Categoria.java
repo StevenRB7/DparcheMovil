@@ -84,7 +84,9 @@ public class Categoria extends AppCompatActivity {
                             }
                         });
 
-                Registro regi = new Registro(ciclismo,ambiente);
+                /*Registro regi = new Registro(ciclismo,ambiente);
+                ciclismo = ciclismo +1 ;
+                ambiente = ambiente + 0;
 
                 FirebaseFirestore data = FirebaseFirestore.getInstance();
                 data.collection("Registro")
@@ -94,8 +96,7 @@ public class Categoria extends AppCompatActivity {
                             public void onSuccess(DocumentReference documentReference) {
 
                                 Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
-                                ciclismo = ciclismo +1 ;
-                                ambiente = ambiente + 0;
+
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -105,7 +106,7 @@ public class Categoria extends AppCompatActivity {
                                 Log.w(TAG, "Error adding document", e);
                                 Toast.makeText(Categoria.this, "Datos f", Toast.LENGTH_LONG).show();
                             }
-                        });
+                        });*/
 
                 Intent intent = new Intent(Categoria.this,InicioNav.class);
                 startActivity(intent);

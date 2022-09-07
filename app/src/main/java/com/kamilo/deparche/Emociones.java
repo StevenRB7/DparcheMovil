@@ -22,7 +22,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -35,7 +37,9 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-    String usuario, estado, idCorreo;
+    String usuario, estado, idCorreo, fechaa;
+
+    Date fechasub;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +62,14 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
                 idCorreo = user.getUid();
                 estado = "Feliz";
 
-                EstadosAnimo datos = new EstadosAnimo(usuario,estado,idCorreo);
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE-LLL-aaaa", Locale.forLanguageTag("es_ES"));
+                Date date = new Date();
+                String fecha = dateFormat.format(date);
+                fechasub = date;
+                fechaa = date.toString();
+
+                EstadosAnimo datos = new EstadosAnimo(usuario,estado,idCorreo,fechasub,fechaa);
 
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 db.collection("Estados De Animo")
@@ -101,7 +112,14 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
                 idCorreo = user.getUid();
                 estado = "Enojado";
 
-                EstadosAnimo datos = new EstadosAnimo(usuario,estado,idCorreo);
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE-LLL-aaaa", Locale.forLanguageTag("es_ES"));
+                Date date = new Date();
+                String fecha = dateFormat.format(date);
+                fechasub = date;
+                fechaa = date.toString();
+
+                EstadosAnimo datos = new EstadosAnimo(usuario,estado,idCorreo,fechasub,fechaa);
 
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 db.collection("Estados De Animo")
@@ -145,7 +163,13 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
                 idCorreo = user.getUid();
                 estado = "Trizte";
 
-                EstadosAnimo datos = new EstadosAnimo(usuario,estado,idCorreo);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE-LLL-aaaa", Locale.forLanguageTag("es_ES"));
+                Date date = new Date();
+                String fecha = dateFormat.format(date);
+                fechasub = date;
+                fechaa = date.toString();
+
+                EstadosAnimo datos = new EstadosAnimo(usuario,estado,idCorreo,fechasub,fechaa);
 
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 db.collection("Estados De Animo")
