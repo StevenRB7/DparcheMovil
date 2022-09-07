@@ -256,75 +256,75 @@ public class InicioNav extends AppCompatActivity {
 
             }
         });
-        new TapTargetSequence(this)
-                .targets(
-                        TapTarget.forView(fab, "Publicar", "En este apartado puedes hacer una publicación de lugares, eventos etc..")
-                                .outerCircleColor(R.color.azulmelo)
-                                .outerCircleAlpha(0.96f)
-                                .targetCircleColor(R.color.azuloscuro)
-                                .titleTextSize(25)
-                                .titleTextColor(R.color.white)
-                                .descriptionTextSize(20)
-                                .descriptionTextColor(R.color.black)
-                                .textColor(R.color.black)
-                                .textTypeface(Typeface.SANS_SERIF)
-                                .dimColor(android.R.color.holo_blue_bright)
-                                .drawShadow(true)
-                                .cancelable(true)
-                                .tintTarget(true)
-                                .transparentTarget(true)
-                                .targetRadius(30),
-
-                        /*TapTarget.forView(crearFra, "Chats", "En este apartado puedes hacer amigos eh interactuar con cada uno de ellos")
-                                .outerCircleColor(R.color.azuloscuro)
-                                .outerCircleAlpha(0.96f)
-                                .targetCircleColor(R.color.onda)
-                                .titleTextSize(25)
-                                .titleTextColor(R.color.white)
-                                .descriptionTextSize(20)
-                                .descriptionTextColor(R.color.blancomelo)
-                                .textColor(R.color.blancomelo)
-                                .textTypeface(Typeface.SANS_SERIF)
-                                .dimColor(android.R.color.holo_blue_bright)
-                                .drawShadow(true)
-                                .cancelable(true)
-                                .tintTarget(true)
-                                .transparentTarget(true)
-                                .targetRadius(30),*/
-
-                        TapTarget.forView(frases, "Frases", "Aqui puedes encontrar frases motiivacionales aleatorias que mejoraran aun mas tu día")
-                                .outerCircleColor(R.color.onda)
-                                .outerCircleAlpha(0.96f)
-                                .targetCircleColor(R.color.azuloscuro)
-                                .titleTextSize(25)
-                                .titleTextColor(R.color.white)
-                                .descriptionTextSize(20)
-                                .descriptionTextColor(R.color.black)
-                                .textColor(R.color.black)
-                                .textTypeface(Typeface.SANS_SERIF)
-                                .dimColor(R.color.azul)
-                                .drawShadow(true)
-                                .cancelable(true)
-                                .tintTarget(true)
-                                .transparentTarget(true)
-                                .targetRadius(50))
-                .listener(new TapTargetSequence.Listener() {
-
-                    @Override
-                    public void onSequenceFinish() {
-
-                    }
-
-                    @Override
-                    public void onSequenceStep(TapTarget lastTarget, boolean targetClicked) {
-
-                    }
-
-                    @Override
-                    public void onSequenceCanceled(TapTarget lastTarget) {
-                    }
-
-                }).start();
+//        new TapTargetSequence(this)
+//                .targets(
+//                        TapTarget.forView(fab, "Publicar", "En este apartado puedes hacer una publicación de lugares, eventos etc..")
+//                                .outerCircleColor(R.color.azulmelo)
+//                                .outerCircleAlpha(0.96f)
+//                                .targetCircleColor(R.color.azuloscuro)
+//                                .titleTextSize(25)
+//                                .titleTextColor(R.color.white)
+//                                .descriptionTextSize(20)
+//                                .descriptionTextColor(R.color.black)
+//                                .textColor(R.color.black)
+//                                .textTypeface(Typeface.SANS_SERIF)
+//                                .dimColor(android.R.color.holo_blue_bright)
+//                                .drawShadow(true)
+//                                .cancelable(true)
+//                                .tintTarget(true)
+//                                .transparentTarget(true)
+//                                .targetRadius(30),
+//
+//                        /*TapTarget.forView(crearFra, "Chats", "En este apartado puedes hacer amigos eh interactuar con cada uno de ellos")
+//                                .outerCircleColor(R.color.azuloscuro)
+//                                .outerCircleAlpha(0.96f)
+//                                .targetCircleColor(R.color.onda)
+//                                .titleTextSize(25)
+//                                .titleTextColor(R.color.white)
+//                                .descriptionTextSize(20)
+//                                .descriptionTextColor(R.color.blancomelo)
+//                                .textColor(R.color.blancomelo)
+//                                .textTypeface(Typeface.SANS_SERIF)
+//                                .dimColor(android.R.color.holo_blue_bright)
+//                                .drawShadow(true)
+//                                .cancelable(true)
+//                                .tintTarget(true)
+//                                .transparentTarget(true)
+//                                .targetRadius(30),*/
+//
+//                        TapTarget.forView(frases, "Frases", "Aqui puedes encontrar frases motiivacionales aleatorias que mejoraran aun mas tu día")
+//                                .outerCircleColor(R.color.onda)
+//                                .outerCircleAlpha(0.96f)
+//                                .targetCircleColor(R.color.azuloscuro)
+//                                .titleTextSize(25)
+//                                .titleTextColor(R.color.white)
+//                                .descriptionTextSize(20)
+//                                .descriptionTextColor(R.color.black)
+//                                .textColor(R.color.black)
+//                                .textTypeface(Typeface.SANS_SERIF)
+//                                .dimColor(R.color.azul)
+//                                .drawShadow(true)
+//                                .cancelable(true)
+//                                .tintTarget(true)
+//                                .transparentTarget(true)
+//                                .targetRadius(50))
+//                .listener(new TapTargetSequence.Listener() {
+//
+//                    @Override
+//                    public void onSequenceFinish() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onSequenceStep(TapTarget lastTarget, boolean targetClicked) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onSequenceCanceled(TapTarget lastTarget) {
+//                    }
+//
+//                }).start();
 
 
         crearFrases.setOnClickListener(new View.OnClickListener() {
