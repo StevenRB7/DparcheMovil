@@ -19,6 +19,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -29,6 +34,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import Model.EstadosAnimo;
+import Model.Feliz;
+import Model.Frases;
 
 public class Emociones extends AppCompatActivity implements View.OnClickListener{
 
@@ -40,6 +47,8 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
     String usuario, estado, idCorreo, fechaa;
 
     Date fechasub;
+
+    long id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +98,27 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
                                 Toast.makeText(Emociones.this, "Datos f", Toast.LENGTH_LONG).show();
                             }
                         });
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("Feliz");
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            id = (snapshot.getChildrenCount());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                String animo = "Feliz como una lombriz";
+                Feliz feli = new Feliz(animo);
+                myRef.child(String.valueOf(id = (int)(Math.random()*10000+1))).setValue(feli);
 
                 Intent intent = new Intent(Emociones.this,Categoria.class);
                 startActivity(intent);
@@ -140,6 +170,29 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
                             }
                         });
 
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("Enojado");
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            id = (snapshot.getChildrenCount());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                String animo = "Estamos enojados";
+                Feliz eno = new Feliz(animo);
+                myRef.child(String.valueOf(id = (int)(Math.random()*10000+1))).setValue(eno);
+
                 Intent intent = new Intent(Emociones.this,Categoria.class);
                 startActivity(intent);
                 finish();
@@ -189,6 +242,29 @@ public class Emociones extends AppCompatActivity implements View.OnClickListener
                                 Toast.makeText(Emociones.this, "Datos f", Toast.LENGTH_LONG).show();
                             }
                         });
+
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("Trizte");
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            id = (snapshot.getChildrenCount());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                String animo = "Tamos trustez";
+                Feliz tite = new Feliz(animo);
+                myRef.child(String.valueOf(id = (int)(Math.random()*10000+1))).setValue(tite);
 
                 Intent intent = new Intent(Emociones.this,Categoria.class);
                 startActivity(intent);

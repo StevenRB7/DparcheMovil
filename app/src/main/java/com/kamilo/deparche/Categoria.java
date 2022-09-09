@@ -22,10 +22,17 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import Model.Categorias;
 import Model.EstadosAnimo;
+import Model.Feliz;
 import Model.Intereses;
 import Model.Registro;
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
@@ -41,6 +48,7 @@ public class Categoria extends AppCompatActivity {
     Integer ciclismo = 0,
             ambiente = 0;
 
+    long id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,29 +92,27 @@ public class Categoria extends AppCompatActivity {
                             }
                         });
 
-                /*Registro regi = new Registro(ciclismo,ambiente);
-                ciclismo = ciclismo +1 ;
-                ambiente = ambiente + 0;
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                FirebaseFirestore data = FirebaseFirestore.getInstance();
-                data.collection("Registro")
-                        .add(regi)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("Ciclismo");
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            id = (snapshot.getChildrenCount());
+                        }
+                    }
 
-                                Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
+                    }
+                });
 
-                                Log.w(TAG, "Error adding document", e);
-                                Toast.makeText(Categoria.this, "Datos f", Toast.LENGTH_LONG).show();
-                            }
-                        });*/
+                String cate = "ciclismo";
+                Categorias cicli = new Categorias(cate);
+                myRef.child(String.valueOf(id = (int)(Math.random()*10000+1))).setValue(cicli);
 
                 Intent intent = new Intent(Categoria.this,InicioNav.class);
                 startActivity(intent);
@@ -142,6 +148,28 @@ public class Categoria extends AppCompatActivity {
                             }
                         });
 
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("Recreacion");
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            id = (snapshot.getChildrenCount());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                String cate = "recreacion";
+                Categorias recre = new Categorias(cate);
+                myRef.child(String.valueOf(id = (int)(Math.random()*10000+1))).setValue(recre);
+
                 Intent intent = new Intent(Categoria.this,InicioNav.class);
                 startActivity(intent);
                 finish();
@@ -175,6 +203,28 @@ public class Categoria extends AppCompatActivity {
                                 Toast.makeText(Categoria.this, "Datos f", Toast.LENGTH_LONG).show();
                             }
                         });
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("Cofeebar");
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            id = (snapshot.getChildrenCount());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                String cate = "cafe bar";
+                Categorias cofee = new Categorias(cate);
+                myRef.child(String.valueOf(id = (int)(Math.random()*10000+1))).setValue(cofee);
 
                 Intent intent = new Intent(Categoria.this,InicioNav.class);
                 startActivity(intent);
@@ -210,6 +260,28 @@ public class Categoria extends AppCompatActivity {
                                 Toast.makeText(Categoria.this, "Datos f", Toast.LENGTH_LONG).show();
                             }
                         });
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("Ambiente");
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            id = (snapshot.getChildrenCount());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                String cate = "ambiente";
+                Categorias ambi = new Categorias(cate);
+                myRef.child(String.valueOf(id = (int)(Math.random()*10000+1))).setValue(ambi);
 
                 Intent intent = new Intent(Categoria.this,InicioNav.class);
                 startActivity(intent);
@@ -247,6 +319,28 @@ public class Categoria extends AppCompatActivity {
                             }
                         });
 
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("Pintura");
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            id = (snapshot.getChildrenCount());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                String cate = "pintura";
+                Categorias pintu = new Categorias(cate);
+                myRef.child(String.valueOf(id = (int)(Math.random()*10000+1))).setValue(pintu);
+
                 Intent intent = new Intent(Categoria.this,InicioNav.class);
                 startActivity(intent);
                 finish();
@@ -281,6 +375,28 @@ public class Categoria extends AppCompatActivity {
                                 Toast.makeText(Categoria.this, "Datos f", Toast.LENGTH_LONG).show();
                             }
                         });
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("Piscinas");
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            id = (snapshot.getChildrenCount());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                String cate = "piscinas";
+                Categorias pisi = new Categorias(cate);
+                myRef.child(String.valueOf(id = (int)(Math.random()*10000+1))).setValue(pisi);
 
                 Intent intent = new Intent(Categoria.this,InicioNav.class);
                 startActivity(intent);
