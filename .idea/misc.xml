@@ -121,6 +121,7 @@
         <entry key="..\:/Users/ADMIN/DparcheMovil/app/src/main/res/layout/activity_eventos.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/DparcheMovil/app/src/main/res/layout/activity_inicio_nav.xml" value="0.3671875" />
         <entry key="..\:/Users/ADMIN/DparcheMovil/app/src/main/res/layout/activity_listar.xml" value="0.33" />
+        <entry key="..\:/Users/ADMIN/DparcheMovil/app/src/main/res/layout/activity_login.xml" value="0.3625" />
         <entry key="..\:/Users/ADMIN/DparcheMovil/app/src/main/res/layout/activity_main.xml" value="0.3578125" />
         <entry key="..\:/Users/ADMIN/DparcheMovil/app/src/main/res/layout/activity_perfil.xml" value="0.33" />
         <entry key="..\:/Users/ADMIN/DparcheMovil/app/src/main/res/layout/activity_publicar.xml" value="0.33" />
@@ -174,7 +175,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -41,6 +41,7 @@ public class Fcm extends FirebaseMessagingService {
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
+
         String from = remoteMessage.getFrom();
 
         if(remoteMessage.getData().size() >0) {
@@ -49,7 +50,7 @@ public class Fcm extends FirebaseMessagingService {
             //String foto = remoteMessage.getData().get("foto");
 
 
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S){
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S_V2){
                 mayorqueoreo(titulo,body);
 
             }
@@ -57,6 +58,25 @@ public class Fcm extends FirebaseMessagingService {
 
             mayorqueoreo(titulo,body );
             /*mayorqueoreo(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());*/
+
+        } else {
+            remoteMessage.getData().size();
+            String titulo = remoteMessage.getData().get("titulo");
+            String body = remoteMessage.getData().get("body");
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S_V2)
+                mayorqueoreo(titulo,body);
+
+        }
+        if(remoteMessage.getData().size() >0) {
+            String titulo = remoteMessage.getData().get("titulo");
+            String body = remoteMessage.getData().get("body");
+            mayorqueoreo(titulo,body );
+        } else {
+            remoteMessage.getData().size();
+            String titulo = remoteMessage.getData().get("titulo");
+            String body = remoteMessage.getData().get("body");
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S)
+                mayorqueoreo(titulo,body);
 
         }
     }
