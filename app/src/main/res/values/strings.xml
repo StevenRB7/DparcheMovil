@@ -61,5 +61,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="chat">chat</string>
+    <string name="melo">¡Bienvenidos a DeParche!</string>
+    <string name="melo2">Para continuar inicia sesión</string>
 
 </resources>
