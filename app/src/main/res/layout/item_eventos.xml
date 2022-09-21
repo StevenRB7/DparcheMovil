@@ -38,15 +38,15 @@
 
     <ImageView
         android:id="@+id/datosimgPublicacion"
-        android:layout_width="365dp"
-        android:layout_height="390dp"
+        android:layout_width="349dp"
+        android:layout_height="288dp"
         android:src="@drawable/galeria"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.217"
+        app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.338" />
+        app:layout_constraintVertical_bias="0.456" />
 
     <TextView
         android:id="@+id/ubicacion"
